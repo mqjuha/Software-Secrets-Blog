@@ -1,5 +1,7 @@
 import './App.css';
-import './styles.css';
+import './themes.css';
+import './layout.css';
+import './component_styles.css';
 
 import React, { useState } from "react";
 
@@ -11,9 +13,23 @@ function App() {
 
   };
 
-  return (
-    <div className='blue-theme'>
+  const classes = {
+    'test_button': true,
+    'button': true,
+  }
 
+  return (
+    <div className='top_bar blue-theme'>
+      <div>
+        <button className='test_button'>1</button>
+        <button className='test_button'>2</button>
+      </div>
+      <div>
+        <button className='test2_button button'>3</button>
+        <button className='test2_button button'>4</button>
+        <button className='test2_button button'>5</button>
+      </div>
+      <button className='test_button'>6</button>
     </div>
   );
 }

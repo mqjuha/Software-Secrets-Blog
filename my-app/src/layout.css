@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    /*flex-direction: column;*/
+}
+
+.banner_image {
+    align-items: center; /*keskittää samaan linjaan*/
+}
+
+.top_bar {
+    display: flex; /*levittää koko näytölle */
+    justify-content: space-between; /* välit */
+    align-items: center;
+}
+
+.highlights {
+    display: flex;
+}
+
+.down_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* @media only screen and (max-width: 768px) {
+  For mobile phones:
+  [class*="col-"] {
+    width: 100%;
+  }
+}*/
