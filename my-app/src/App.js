@@ -2,8 +2,11 @@ import './App.css';
 import './themes.css';
 import './layout.css';
 import './component_styles.css';
+import './components/nav_bar/nav_bar.css';
 
 import React, { useState } from "react";
+import Navbar from './components/nav_bar/nav_bar.js';
+
 
 function App() {
 
@@ -19,7 +22,10 @@ function App() {
   }
 
   return (
-    <div className='top_bar blue-theme'>
+    <div className='blue_theme'>
+      <Navbar></Navbar>
+    </div>
+    /*<div className='top_bar blue-theme'>
       <div>
         <button className='test_button'>1</button>
         <button className='test_button'>2</button>
@@ -30,7 +36,7 @@ function App() {
         <button className='test2_button button'>5</button>
       </div>
       <button className='test_button'>6</button>
-    </div>
+    </div>*/
   );
 }
 
