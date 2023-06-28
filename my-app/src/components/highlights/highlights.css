@@ -1,0 +1,93 @@
+@import './../../themes.css';
+
+.red-theme {
+    --primary: #cb1505;
+}
+
+.blue-theme {
+    --primary: #2034ba;
+}
+
+.yellow-theme {
+    --primary: #f3bc23;
+}
+
+.abstract {
+    width: 25%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: var(--foreground);
+    background-color: var(--background);
+    text-align: center;
+    margin: 1%;
+    padding: 1%;
+    border: 5px;
+    border-color: var(--primary);
+    border-style: solid;
+}
+
+
+.abstract-row {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--foreground);
+    align-items: center;
+    justify-content: center;
+
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--foreground);
+
+}
+
+.light-header {
+    color: var(--background);
+    text-align: center;
+}
+
+.font {
+    margin: 10%;
+    
+}
+
+.image {
+    height: 40%;
+    margin: 2%;
+}
+
+.abstract-header {
+    margin: 0%;
+}
+
+@media only screen and (max-width: 768px) {
+  /*For mobile phones:*/
+
+  .abstract-row {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--foreground);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .abstract {
+    width: 90%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: var(--foreground);
+    background-color: var(--background);
+    text-align: center;
+    margin: 1%;
+    padding: 1%;
+}
+}
+
