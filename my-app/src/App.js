@@ -22,8 +22,8 @@ function App() {
   }
 
   return (
-    <div className='blue_theme'>
-      <Navbar></Navbar>
+    <div className='blue_theme wrapper'>
+      <Navbar className='top_bar'></Navbar>
     </div>
     /*<div className='top_bar blue-theme'>
       <div>

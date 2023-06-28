@@ -1,53 +1,69 @@
+import * as React from 'react';
 import ReactLogo from './../../logo.svg';
+import IconButton from '@mui/material/IconButton';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import {Routes, Route, useNavigate} from 'react-router-dom';
+import Home from "./../../pages/home_page.js"
+
+//import MenuList from '@mui/material/MenuList';
+//import { MenuRounded } from '@mui/icons-material';
+
 
 export default function Navbar() {
+
+    const navigate = useNavigate();
+
+    const navigateToHomePage = () => {
+      navigate('./../../pages/home_page');
+    };
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+
+    // Open the menu bar
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+
+    // Close the menu bar
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
     return (
       <nav className="navigation">
         <img src={ReactLogo} className="logo" />
-        <button className='logo'>
-          <MenuRoundedIcon className='hamburger'/>
-        </button>
-        
-         
+        <IconButton
+          onClick={handleClick}
+        >
+          <MenuRoundedIcon className='icon'/>
+        </IconButton>
 
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={() => navigate("./../../pages/home_page")}>Home Page</MenuItem>
+          <MenuItem>Blog</MenuItem>
+          <MenuItem>Feedback</MenuItem>
+          <MenuItem>About Us</MenuItem>
+        </Menu>
+        <Routes>
+          <Route path='./../pages/home_page' element={<Home />} />
+        </Routes>
 
+        <button className='nav_button'>Home Page</button>
+        <button className='nav_button'>Blog</button>
+        <button className='nav_button'>About Us</button>
+
+        <IconButton>
+          <SearchRoundedIcon className='icon'/>
+        </IconButton>
 
       </nav>
     );
   }
-
-  /* TESTAA ICONBUTTON !!!!! */
-
-  
-          /*<div
-          className="navigation-menu">
-          <ul>
-            <li>
-              <a href="/home">Home</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
-          </ul>
-        </div>*/
-
-          /*<button className="hamburger">
-          {/* icon from heroicons.com }
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="white"
-          >
-            <path
-              fillRule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>*/
