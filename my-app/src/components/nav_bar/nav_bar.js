@@ -6,7 +6,9 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {Routes, Route, useNavigate} from 'react-router-dom';
-import Home from "./../../pages/home_page.js"
+//import Home from "./../../pages/home_page.js"
+
+import history from './../../pages/history';
 
 //import MenuList from '@mui/material/MenuList';
 //import { MenuRounded } from '@mui/icons-material';
@@ -16,8 +18,12 @@ export default function Navbar() {
 
     const navigate = useNavigate();
 
-    const navigateToHomePage = () => {
-      navigate('./../../pages/home_page');
+    const navigateToAboutUs = () => {
+      navigate('/about');
+    };
+
+    const navigateToHome = () => {
+      navigate('/');
     };
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -47,16 +53,13 @@ export default function Navbar() {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={() => navigate("./../../pages/home_page")}>Home Page</MenuItem>
+          <MenuItem onClick={navigateToHome}>Home Page</MenuItem>
           <MenuItem>Blog</MenuItem>
           <MenuItem>Feedback</MenuItem>
-          <MenuItem>About Us</MenuItem>
+          <MenuItem onClick={navigateToAboutUs}>About Us</MenuItem>
         </Menu>
-        <Routes>
-          <Route path='./../pages/home_page' element={<Home />} />
-        </Routes>
 
-        <button className='nav_button'>Home Page</button>
+        <button className='nav_button' onClick={() => history.push('/Home')}>Home Page</button>
         <button className='nav_button'>Blog</button>
         <button className='nav_button'>About Us</button>
 
@@ -67,3 +70,7 @@ export default function Navbar() {
       </nav>
     );
   }
+
+          /*<Routes>
+          <Route path='./../pages/home_page' element={<Home />} />
+        </Routes>*/

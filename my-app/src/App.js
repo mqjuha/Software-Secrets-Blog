@@ -5,7 +5,14 @@ import './component_styles.css';
 import './components/nav_bar/nav_bar.css';
 
 import React, { useState } from "react";
+
 import Navbar from './components/nav_bar/nav_bar.js';
+import Home from './pages/home_page';
+import About from './pages/about_us_page';
+import Feedback from './pages/feedback_page';
+import Blog from './pages/front_page';
+
+import { Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -23,20 +30,15 @@ function App() {
 
   return (
     <div className='blue_theme wrapper'>
-      <Navbar className='top_bar'></Navbar>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="feedback" element={<Feedback />} />
+        <Route path="frontpage" element={<Blog />} />
+      </Routes>
+
     </div>
-    /*<div className='top_bar blue-theme'>
-      <div>
-        <button className='test_button'>1</button>
-        <button className='test_button'>2</button>
-      </div>
-      <div>
-        <button className='test2_button button'>3</button>
-        <button className='test2_button button'>4</button>
-        <button className='test2_button button'>5</button>
-      </div>
-      <button className='test_button'>6</button>
-    </div>*/
   );
 }
 
