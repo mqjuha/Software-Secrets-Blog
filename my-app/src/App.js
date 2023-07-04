@@ -6,6 +6,9 @@ import './components/nav_bar/nav_bar.css';
 
 import React, { useState } from "react";
 import Navbar from './components/nav_bar/nav_bar.js';
+import Highlights from './components/highlights/highlights';
+import Endbar from './components/end_bar/end_bar';
+import Blogfilter from './components/blog_filter/blog_filter';
 
 
 function App() {
@@ -23,7 +26,8 @@ function App() {
 
   return (
     <div className='blue_theme wrapper'>
-      <Navbar className='top_bar'></Navbar>
+      <Blogfilter></Blogfilter>
+      
     </div>
     /*<div className='top_bar blue-theme'>
       <div>
