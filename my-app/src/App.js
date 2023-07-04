@@ -33,9 +33,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="aboutus" element={<About />} />
         <Route path="feedback" element={<Feedback />} />
-        <Route path="frontpage" element={<Blog />} />
+        <Route path="blog" element={<Blog />} />
       </Routes>
 
     </div>

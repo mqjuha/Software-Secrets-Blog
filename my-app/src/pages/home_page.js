@@ -5,13 +5,12 @@ import './../layout.css'
 
 function Home() {
 
-    return (
-      <div>
-        <Navbar className='top_bar'></Navbar>
-        <p>HOME PAGE</p>
-        
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Navbar className='top_bar'></Navbar>
+      <p>HOME PAGE</p>        
+    </div>
+  );
+}
   
-  export default Home;
+export default Home;

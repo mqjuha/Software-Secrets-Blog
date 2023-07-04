@@ -5,13 +5,12 @@ import './../layout.css'
 
 function About() {
 
-    return (
-      <div>
-        <Navbar className='top_bar'></Navbar>
-        <p>About Us</p>
-        
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Navbar className='top_bar'></Navbar>
+      <p>About Us</p>        
+    </div>
+  );
+}
   
-  export default About;
+export default About;
