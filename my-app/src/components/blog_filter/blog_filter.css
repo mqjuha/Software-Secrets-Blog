@@ -1,0 +1,15 @@
+.section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--foreground);
+    padding: 20px;
+    color: red;
+
+}
+
+.item {
+    color: var(--background);
+}

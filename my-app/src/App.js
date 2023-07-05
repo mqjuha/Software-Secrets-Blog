@@ -7,6 +7,9 @@ import './components/nav_bar/nav_bar.css';
 import React, { useState } from "react";
 
 import Navbar from './components/nav_bar/nav_bar.js';
+import Highlights from './components/highlights/highlights';
+import Endbar from './components/end_bar/end_bar';
+import Blogfilter from './components/blog_filter/blog_filter';
 import Home from './pages/home_page';
 import About from './pages/about_us_page';
 import Feedback from './pages/feedback_page';
@@ -42,7 +45,6 @@ const theme = createTheme({
   },
 });
 
-
 function App() {
 
   const [theme, updateTheme] = useState("blue-theme");
@@ -66,7 +68,6 @@ function App() {
           <Route path="feedback" element={<Feedback />} />
           <Route path="blog" element={<Blog />} />
         </Routes>
-
       </div>
     </ThemeProvider>
   );
