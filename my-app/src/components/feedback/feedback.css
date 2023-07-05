@@ -1,0 +1,33 @@
+@import './../../themes.css';
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--background);
+}
+
+.question-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.question {
+    margin: 20px;
+    padding: 20px;
+}
+
+.font {
+    font-size: large;
+}
+
+.label-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

@@ -6,12 +6,6 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {Routes, Route, useNavigate} from 'react-router-dom';
-//import Home from "./../../pages/home_page.js"
-
-import history from './../../pages/history';
-
-//import MenuList from '@mui/material/MenuList';
-//import { MenuRounded } from '@mui/icons-material';
 
 
 export default function Navbar() {
