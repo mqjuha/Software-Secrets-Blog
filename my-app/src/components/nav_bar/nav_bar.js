@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 //import Home from "./../../pages/home_page.js"
 
-import history from './../../pages/history';
+//import history from './../../pages/history';
 
 //import MenuList from '@mui/material/MenuList';
 //import { MenuRounded } from '@mui/icons-material';
@@ -39,11 +39,8 @@ export default function Navbar() {
     return (
       <nav className="navigation">
         <img src={ReactLogo} className="logo" />
-        <IconButton
-          onClick={handleClick}
-        >
-          <MenuRoundedIcon className='icon'/>
-        </IconButton>
+
+
 
         <Menu
           anchorEl={anchorEl}
@@ -60,10 +57,26 @@ export default function Navbar() {
         <button className='nav_button' onClick={() => navigateToPage('/blog')}>Blog</button>
         <button className='nav_button' onClick={() => navigateToPage('/aboutus')}>About Us</button>
 
-        <IconButton>
-          <SearchRoundedIcon className='icon'/>
-        </IconButton>
+
 
       </nav>
     );
   }
+
+  /*
+
+  -- Ennen menu elementtiä
+
+          <IconButton
+          onClick={handleClick}
+        >
+          <MenuRoundedIcon className='icon'/>
+        </IconButton>
+
+  -- Viimeisen buttonin jälkeen
+
+                <IconButton>
+          <SearchRoundedIcon className='icon'/>
+        </IconButton>
+
+  */
