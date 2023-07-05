@@ -5,7 +5,42 @@ import './component_styles.css';
 import './components/nav_bar/nav_bar.css';
 
 import React, { useState } from "react";
+
 import Navbar from './components/nav_bar/nav_bar.js';
+import Home from './pages/home_page';
+import About from './pages/about_us_page';
+import Feedback from './pages/feedback_page';
+import Blog from './pages/front_page';
+
+import { Routes, Route } from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: "#424f58",
+      main: "#13232F",
+      dark: "#0d1820"
+    },
+    socundary: {
+      light: "#dadada",
+      main: "#D1D1D1",
+      dark: "#929292"
+    },
+    background: {
+      default: "#FAF9F0",
+      paper: "#13232F"
+    },
+    text: {
+      primary: "#13232F",
+      secondary: "#FAF9F0"
+    },
+    divider: {
+      divider: "#13232F"
+    }
+  },
+});
 
 
 function App() {
@@ -22,21 +57,18 @@ function App() {
   }
 
   return (
-    <div className='blue_theme wrapper'>
-      <Navbar className='top_bar'></Navbar>
-    </div>
-    /*<div className='top_bar blue-theme'>
-      <div>
-        <button className='test_button'>1</button>
-        <button className='test_button'>2</button>
+    <ThemeProvider theme={theme}>
+      <div className='blue_theme wrapper'>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="aboutus" element={<About />} />
+          <Route path="feedback" element={<Feedback />} />
+          <Route path="blog" element={<Blog />} />
+        </Routes>
+
       </div>
-      <div>
-        <button className='test2_button button'>3</button>
-        <button className='test2_button button'>4</button>
-        <button className='test2_button button'>5</button>
-      </div>
-      <button className='test_button'>6</button>
-    </div>*/
+    </ThemeProvider>
   );
 }
 

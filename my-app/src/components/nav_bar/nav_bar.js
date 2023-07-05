@@ -6,7 +6,9 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {Routes, Route, useNavigate} from 'react-router-dom';
-import Home from "./../../pages/home_page.js"
+//import Home from "./../../pages/home_page.js"
+
+//import history from './../../pages/history';
 
 //import MenuList from '@mui/material/MenuList';
 //import { MenuRounded } from '@mui/icons-material';
@@ -14,10 +16,11 @@ import Home from "./../../pages/home_page.js"
 
 export default function Navbar() {
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
-    const navigateToHomePage = () => {
-      navigate('./../../pages/home_page');
+    // Navigate to different page
+    const navigateToPage = (page) => {
+      navigate(page);
     };
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -36,34 +39,44 @@ export default function Navbar() {
     return (
       <nav className="navigation">
         <img src={ReactLogo} className="logo" />
-        <IconButton
-          onClick={handleClick}
-        >
-          <MenuRoundedIcon className='icon'/>
-        </IconButton>
+
+
 
         <Menu
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={() => navigate("./../../pages/home_page")}>Home Page</MenuItem>
-          <MenuItem>Blog</MenuItem>
-          <MenuItem>Feedback</MenuItem>
-          <MenuItem>About Us</MenuItem>
+          <MenuItem onClick={() => navigateToPage('/')}>Home Page</MenuItem>
+          <MenuItem onClick={() => navigateToPage('/blog')}>Blog</MenuItem>
+          <MenuItem onClick={() => navigateToPage('/feedback')}>Feedback</MenuItem>
+          <MenuItem onClick={() => navigateToPage('/aboutus')}>About Us</MenuItem>
         </Menu>
-        <Routes>
-          <Route path='./../pages/home_page' element={<Home />} />
-        </Routes>
 
-        <button className='nav_button'>Home Page</button>
-        <button className='nav_button'>Blog</button>
-        <button className='nav_button'>About Us</button>
+        <button className='nav_button' onClick={() => navigateToPage('/')}>Home Page</button>
+        <button className='nav_button' onClick={() => navigateToPage('/blog')}>Blog</button>
+        <button className='nav_button' onClick={() => navigateToPage('/aboutus')}>About Us</button>
 
-        <IconButton>
-          <SearchRoundedIcon className='icon'/>
-        </IconButton>
+
 
       </nav>
     );
   }
+
+  /*
+
+  -- Ennen menu elementtiä
+
+          <IconButton
+          onClick={handleClick}
+        >
+          <MenuRoundedIcon className='icon'/>
+        </IconButton>
+
+  -- Viimeisen buttonin jälkeen
+
+                <IconButton>
+          <SearchRoundedIcon className='icon'/>
+        </IconButton>
+
+  */
