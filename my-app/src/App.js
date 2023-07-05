@@ -13,6 +13,34 @@ import Feedback from './pages/feedback_page';
 import Blog from './pages/front_page';
 
 import { Routes, Route } from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: "#424f58",
+      main: "#13232F",
+      dark: "#0d1820"
+    },
+    socundary: {
+      light: "#dadada",
+      main: "#D1D1D1",
+      dark: "#929292"
+    },
+    background: {
+      default: "#FAF9F0",
+      paper: "#13232F"
+    },
+    text: {
+      primary: "#13232F",
+      secondary: "#FAF9F0"
+    },
+    divider: {
+      divider: "#13232F"
+    }
+  },
+});
 
 
 function App() {
@@ -29,16 +57,18 @@ function App() {
   }
 
   return (
-    <div className='blue_theme wrapper'>
+    <ThemeProvider theme={theme}>
+      <div className='blue_theme wrapper'>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="aboutus" element={<About />} />
-        <Route path="feedback" element={<Feedback />} />
-        <Route path="blog" element={<Blog />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="aboutus" element={<About />} />
+          <Route path="feedback" element={<Feedback />} />
+          <Route path="blog" element={<Blog />} />
+        </Routes>
 
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
