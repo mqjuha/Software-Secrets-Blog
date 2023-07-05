@@ -7,7 +7,7 @@ function About() {
 
   return (
     <div>
-      <Navbar className='top_bar'></Navbar>
+      <Navbar></Navbar>
       <p>About Us</p>        
     </div>
   );

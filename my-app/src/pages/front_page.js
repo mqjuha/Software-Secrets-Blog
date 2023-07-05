@@ -7,7 +7,7 @@ function FrontPage() {
 
   return (
     <div>
-      <Navbar className='top_bar'></Navbar>
+      <Navbar></Navbar>
       <p>Front Page of Blog</p>        
     </div>
   );

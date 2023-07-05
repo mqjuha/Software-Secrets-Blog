@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import Navbar from './../components/nav_bar/nav_bar';
 import './../layout.css'
 
+import Feedbacks from '../components/feedback/feedback';
+
 function Feedback() {
 
   return (
     <div>
-      <Navbar className='top_bar'></Navbar>
-      <p>Feedback Page</p>        
+      <Navbar></Navbar>
+      <Feedbacks></Feedbacks>
     </div>
   );
 }
