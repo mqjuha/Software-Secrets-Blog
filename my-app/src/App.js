@@ -44,8 +44,7 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMain}>
-      <div className='blue_theme wrapper'>
-
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="aboutus" element={<About />} />
