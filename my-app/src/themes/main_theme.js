@@ -25,6 +25,9 @@ const mainTheme = {
       divider: "#13232F"
     }
   },
+  typography: {
+    fontFamily: 'monospace',
+  },
 };
 
 export default mainTheme;
