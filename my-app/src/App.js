@@ -21,10 +21,31 @@ import blueTheme from './themes/blue_theme';
 import yellowTheme from './themes/yellow_theme';
 
 import { Routes, Route } from 'react-router-dom';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Button, ThemeProvider, Typography, createTheme, Paper, CssBaseline} from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 
 
 function App() {
+
+  const top100Films = [
+    { title: 'The Shawshank Redemption', year: 1994 },
+    { title: 'The Godfather', year: 1972 },
+    { title: 'The Godfather: Part II', year: 1974 },
+    { title: 'The Dark Knight', year: 2008 },
+    { title: '12 Angry Men', year: 1957 },
+    { title: "Schindler's List", year: 1993 },
+    { title: 'Pulp Fiction', year: 1994 },
+    {
+      title: 'The Lord of the Rings: The Return of the King',
+      year: 2003,
+    },
+    { title: 'The Good, the Bad and the Ugly', year: 1966 },
+    { title: 'Fight Club', year: 1999 },
+    {
+      title: 'The Lord of the Rings: The Fellowship of the Ring',
+      year: 2001,
+    },];
 
   const [colorTheme, updateTheme] = useState("blue-theme");
 
@@ -44,6 +65,7 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMain}>
+      <CssBaseline/>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />

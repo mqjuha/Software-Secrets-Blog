@@ -1,9 +1,15 @@
-import * as React from "react";
+import { Fragment } from "react";
 import Button from '@mui/material/Button';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+
+
+
+import mainTheme from './../../themes/main_theme';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 
 import './blog_filter.css'
 
@@ -84,12 +90,14 @@ function Sort_selector () {
 
 export default function Blogfilter () {
     return (
-        <React.Fragment>
+        <ThemeProvider theme={mainTheme}>
+        <Fragment>
             <div className="section">
                 <Search_field></Search_field>
                 <Filter_selector></Filter_selector>
                 <Sort_selector></Sort_selector>
             </div>
-        </React.Fragment>
+        </Fragment>
+        </ThemeProvider>
     )
 }

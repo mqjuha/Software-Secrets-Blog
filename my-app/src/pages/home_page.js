@@ -4,21 +4,61 @@ import Navbar from './../components/nav_bar/nav_bar';
 import './../layout.css'
 
 
-import mainTheme from './../themes/main_theme';
 
-import { Typography } from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Autocomplete, Typography } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import Blogfilter from './../components/blog_filter/blog_filter';
+
+const top100Films = [
+  { title: 'The Shawshank Redemption', year: 1994 },
+  { title: 'The Godfather', year: 1972 },
+  { title: 'The Godfather: Part II', year: 1974 },
+  { title: 'The Dark Knight', year: 2008 },
+  { title: '12 Angry Men', year: 1957 },
+  { title: "Schindler's List", year: 1993 },
+  { title: 'Pulp Fiction', year: 1994 },
+  {
+    title: 'The Lord of the Rings: The Return of the King',
+    year: 2003,
+  },
+  { title: 'The Good, the Bad and the Ugly', year: 1966 },
+  { title: 'Fight Club', year: 1999 },
+  {
+    title: 'The Lord of the Rings: The Fellowship of the Ring',
+    year: 2001,
+  },
+  {
+    title: 'Star Wars: Episode V - The Empire Strikes Back',
+    year: 1980,
+  },
+  { title: 'Forrest Gump', year: 1994 },
+  { title: 'Inception', year: 2010 },
+  {
+    title: 'The Lord of the Rings: The Two Towers',
+    year: 2002,
+  }
+]
 
 function Home() {
 
   return (
-    <ThemeProvider theme={mainTheme}>
+
     <div>
       <Navbar className='top_bar'></Navbar>
       <p>HOME PAGE</p>  
-      <Typography>MOII</Typography>      
+      <Autocomplete
+        multiple
+        id="size-small-outlined-multi"
+        size="small"
+        options={top100Films}
+        getOptionLabel={(option) => option.title}
+        defaultValue={[top100Films[13]]}
+        renderInput={(params) => (
+          <TextField {...params} label="Size small" placeholder="Favorites" />
+        )}
+      />
     </div>
-    </ThemeProvider>
+
   );
 }
   
