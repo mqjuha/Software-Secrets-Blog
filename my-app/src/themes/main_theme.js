@@ -15,7 +15,7 @@ const mainTheme = {
     },
     text: {
       primary: "#13232F",
-      secondary: "#FAF9F0"
+      secondary: "#13232F"
     },
     divider: "#13232F",
     background: {

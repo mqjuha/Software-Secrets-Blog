@@ -46,17 +46,7 @@ function Home() {
     <div>
       <Navbar className='top_bar'></Navbar>
       <p>HOME PAGE</p>  
-      <Autocomplete
-        multiple
-        id="size-small-outlined-multi"
-        size="small"
-        options={top100Films}
-        getOptionLabel={(option) => option.title}
-        defaultValue={[top100Films[13]]}
-        renderInput={(params) => (
-          <TextField {...params} label="Size small" placeholder="Favorites" />
-        )}
-      />
+      <Blogfilter></Blogfilter>
     </div>
 
   );
