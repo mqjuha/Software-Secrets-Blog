@@ -1,4 +1,5 @@
-import * as React from 'react';
+//import * as React from 'react';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
@@ -68,11 +69,19 @@ const customIcons = {
         e.target.reset();
     };
 
+    const [showForm, setShowForm] = useState(true);
+    const [showButton, setShowButton] = useState(false);
+
+    const toggleButton = () => {
+      setShowForm(!showForm);
+      setShowButton(!showButton);
+    };
+
     return (
         <div className="section">
-            <h2>Give us useful feedback to improve the website! :)</h2>
-            
-              <form className="question-column" ref={form} onSubmit={sendEmail}>
+          {
+              showForm?<form className="question-column" ref={form} onSubmit={sendEmail}>
+                <h2>Give us useful feedback to improve the website! :)</h2>
                 <div className='question'>
                   <RadioGroupRating name='question1'></RadioGroupRating>         
                   <RadioGroupRating name='question2'></RadioGroupRating>               
@@ -94,12 +103,24 @@ const customIcons = {
                   <Button
                     className='send_button'
                     type='submit'
+                    onClick={toggleButton}
                     >
                     Send Feedback
                   </Button>
                 </div>
-              </form>
-            
+              </form>: null
+            }
+            {
+              showButton?<div>
+              <h2>We appreciate your feedback! :)</h2>
+              <Button 
+                className='send_button'
+                onClick={toggleButton}
+                >
+                  Send more feedback
+              </Button>
+              </div>: null
+            }
         </div>
     );
 }
