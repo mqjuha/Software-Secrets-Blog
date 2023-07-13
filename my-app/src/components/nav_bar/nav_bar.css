@@ -16,11 +16,13 @@
 .logo {
   height: 60px;
   width: 60px;
+  margin: 15px;
 }
 
 .icon {
   color: var(--background);
   size: large;
+  margin: 15px;
 }
 
 .nav_button {

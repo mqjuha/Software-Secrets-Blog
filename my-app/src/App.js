@@ -15,7 +15,6 @@ import Blog from './pages/front_page';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -42,7 +41,6 @@ const theme = createTheme({
   },
 });
 
-
 function App() {
 
   const [theme, updateTheme] = useState("blue-theme");
@@ -57,7 +55,7 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    
       <div className='blue_theme wrapper'>
 
         <Routes>
@@ -68,7 +66,7 @@ function App() {
         </Routes>
 
       </div>
-    </ThemeProvider>
+
   );
 }
 

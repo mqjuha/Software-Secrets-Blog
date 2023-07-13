@@ -14,14 +14,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: auto 20px;
+    padding: 10px 12px;
+    width: 10cm;
+    max-width: 100%;
 }
 
 .question {
-    margin: 20px;
-    padding: 20px;
-}
-
-.font {
+    padding: 10px;
     font-size: large;
 }
 
@@ -30,4 +30,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.send_button {
+    height: 60px;
+    width: 4cm;
+    margin: 15px 15px;
+    padding: 100px 100p;
+    background-color: var(--foreground);
+    color: var(--background);
+    font-size: large;
 }

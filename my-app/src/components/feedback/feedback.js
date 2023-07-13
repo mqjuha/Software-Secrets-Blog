@@ -11,9 +11,14 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 
 import './feedback.css'
 
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
-import { Typography } from "@mui/material";
+import { TextField, Button, Typography } from '@mui/material';
+
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
+//import Pagination from '@mui/material/Pagination';
+//import Stack from '@mui/material/Stack';
+
 
 const customIcons = {
     1: {
@@ -38,23 +43,64 @@ const customIcons = {
     },
   };
 
-export default function Feedbacks () {
+  const sendFeedbackToEmail = (message) => {
+    <a href="mailto:email@example.com">Click to Send an Email</a>
+  };
+
+  export default function Feedbacks () {
+
+    const form = useRef();
+
+    // Sends feedback to Julia's email
+    const sendEmail = (e) => {
+      e.preventDefault();
+
+      emailjs.sendForm('service_3u94pwf',
+        'template_86p0tkk',
+        form.current,
+        '2Nxivev2iyC5CDLQB'
+        )
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+        e.target.reset();
+    };
 
     return (
         <div className="section">
             <h2>Give us useful feedback to improve the website! :)</h2>
-            <div className="question-column">
-                <Typography className="font">What do you think about the blog?</Typography>                  
-                <RadioGroupRating></RadioGroupRating>
-                <Typography className="font">What do you think about the blog?</Typography>                  
-                <RadioGroupRating></RadioGroupRating>
-                <Typography className="font">What do you think about the blog?</Typography>                  
-                <RadioGroupRating></RadioGroupRating>
-                <Typography className="font">What do you think about the blog?</Typography>                  
-                <RadioGroupRating></RadioGroupRating>            
-            </div>
+            
+              <form className="question-column" ref={form} onSubmit={sendEmail}>
+                <div className='question'>
+                  <RadioGroupRating name='question1'></RadioGroupRating>         
+                  <RadioGroupRating name='question2'></RadioGroupRating>               
+                  <RadioGroupRating name='question3'></RadioGroupRating>                
+                  <RadioGroupRating name='question4'></RadioGroupRating>
+                </div>
+                <div className="question-column">
+                  <Typography className="font">Please give feedback !</Typography>  
+                  <TextField
+                    multiline
+                    rows={4}
+                    variant="outlined"
+                    color='secondary'
+                    fullWidth
+                    defaultValue="Thank you for the feedback!"
+                    name='free_feedback'
+                    style={{background: "white"}}
+                  />
+                  <Button
+                    className='send_button'
+                    type='submit'
+                    >
+                    Send Feedback
+                  </Button>
+                </div>
+              </form>
+            
         </div>
-
     );
 }
 
@@ -79,17 +125,20 @@ function RadioGroupRating() {
 
     return (
         <div className='question-column'>
-            <StyledRating
-                name="highlight-selected-only"
-                defaultValue={2}
-                IconContainerComponent={IconContainer}
-                getLabelText={(value) => customIcons[value].label}
-                onChange={(event, newValue) => {
-                    setValue(newValue);
-                }}
-                highlightSelectedOnly
-            />
-            <Typography>{customIcons[value].label}</Typography>
+          <Typography>What do you think about the blog?</Typography>
+           
+          <StyledRating
+              name="highlight-selected-only"
+              defaultValue={2}
+              IconContainerComponent={IconContainer}
+              getLabelText={(value) => customIcons[value].label}
+
+              onChange={(event, newValue) => {
+                  setValue(newValue);
+              }}
+              highlightSelectedOnly
+          />
+          <Typography>{customIcons[value].label}</Typography>
         </div>
     );
 }
