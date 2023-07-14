@@ -46,7 +46,6 @@ function Home() {
     <div>
       <Navbar className='top_bar'></Navbar>
       <p>HOME PAGE</p>  
-      <Blogfilter></Blogfilter>
     </div>
 
   );
