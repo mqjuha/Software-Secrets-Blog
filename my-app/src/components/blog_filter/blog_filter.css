@@ -6,7 +6,6 @@
     height: fit-content;
     padding-top: 20px;
     padding-bottom: 20px;
-    color: red;
     background-color: var(--background);
 }
 
@@ -16,7 +15,6 @@
     justify-content: left;
     width: 50%;
     height: fit-content;
-    color: red;
 }
 
 .filter {
