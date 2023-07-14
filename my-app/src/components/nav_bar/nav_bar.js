@@ -38,7 +38,7 @@ export default function Navbar() {
 
     return (
       <nav className="navigation">
-        <img src={ReactLogo} className="logo" />
+        <img src={ReactLogo} className="navi-logo" />
 
 
 
@@ -59,6 +59,14 @@ export default function Navbar() {
           <button className='nav_button' onClick={() => navigateToPage('/feedback')}>Feedback</button>
           <button className='nav_button' onClick={() => navigateToPage('/aboutus')}>About Us</button>
         </div>
+
+        
+        <IconButton
+          className='menu-icon'
+          onClick={handleClick}
+        >
+          <MenuRoundedIcon className='nav-icon'/>
+        </IconButton>
 
       </nav>
     );
