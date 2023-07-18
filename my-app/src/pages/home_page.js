@@ -1,6 +1,11 @@
 import * as React from 'react';
 
+import './home_page.css'
+
+import ReactLogo from './../logo.svg';
+
 import Highlights from '../components/highlights/highlights';
+import { Typography } from '@mui/material';
 
 const top100Films = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -34,11 +39,46 @@ const top100Films = [
 
 function Home() {
 
+  // Get from database
+  const topics = [
+    {
+      id: 1,
+      title: "Title 1",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
+      img: ReactLogo
+    },
+    {
+      id: 2,
+      title: "Title 2",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
+      img: ReactLogo
+    },
+    {
+      id: 3,
+      title: "Title 3",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
+      img: ReactLogo
+    }
+  ]
+
   return (
 
     <div className='wrapper'>
       <p>HOME PAGE</p>  
       <Highlights></Highlights>
+      <div className='topics'>
+        {topics.map(topic=>(
+          <div className='topic' key={topic.id}>
+            <div className='img'>
+              <img  src={topic.img} />
+            </div>
+            <div className='content'>
+              <Typography className='header'>{topic.title}</Typography>
+              <Typography>{topic.desc}</Typography>
+            </div>
+          </div>
+        ))}
+      </div>
       <p>jotain</p>
     </div>
 
