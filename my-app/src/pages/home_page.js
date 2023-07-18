@@ -1,14 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from './../components/nav_bar/nav_bar';
-import './../layout.css'
 
-
-
-import { Autocomplete, Typography } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import Blogfilter from './../components/blog_filter/blog_filter';
-import Endbar from '../components/end_bar/end_bar';
 import Highlights from '../components/highlights/highlights';
 
 const top100Films = [
@@ -46,11 +37,9 @@ function Home() {
   return (
 
     <div className='wrapper'>
-      <Navbar className='top_bar'></Navbar>
       <p>HOME PAGE</p>  
       <Highlights></Highlights>
       <p>jotain</p>
-      <Endbar></Endbar>
     </div>
 
   );

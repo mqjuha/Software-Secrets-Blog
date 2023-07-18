@@ -20,10 +20,20 @@ import redTheme from './themes/red_theme';
 import blueTheme from './themes/blue_theme';
 import yellowTheme from './themes/yellow_theme';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import { Button, ThemeProvider, Typography, createTheme, Paper, CssBaseline} from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
+
+function BaseStructure() {
+return (
+  <div>
+    <Navbar className='top_bar'/>
+    <Outlet/>
+    <Endbar/>
+  </div>
+);
+}
 
 
 function App() {
@@ -68,10 +78,12 @@ function App() {
       <CssBaseline/>
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="aboutus" element={<About />} />
-          <Route path="feedback" element={<Feedback />} />
-          <Route path="blog" element={<Blog />} />
+          <Route element={<BaseStructure/>}>
+            <Route path="/" element={<Home />} />
+            <Route path="aboutus" element={<About />} />
+            <Route path="feedback" element={<Feedback />} />
+            <Route path="blog" element={<Blog />} />
+          </Route>
         </Routes>
       </div>
     </ThemeProvider>
