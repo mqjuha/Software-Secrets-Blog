@@ -9,27 +9,15 @@
 }
 
 .red-theme {
-    --background: #faf9f0;
-    --foreground: #13232f;
-    --font: #13232f;
     --primary: #cb1505;
-    --secondary: #d1d1d1;
 }
 
 .blue-theme {
-    --background: #faf9f0;
-    --foreground: #13232f;
-    --font: #13232f;
     --primary: #2034ba;
-    --secondary: #d1d1d1;
 }
 
 .yellow-theme {
-    --background: #faf9f0;
-    --foreground: #13232f;
-    --font: #13232f;
     --primary: #f3bc23;
-    --secondary: #d1d1d1;
 }
 
 .button {

@@ -24,15 +24,19 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import { Button, ThemeProvider, Typography, createTheme, Paper, CssBaseline} from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
+import BlogNavbar from './components/blog_nav_bar/blog_nav_bar';
+import Business from './pages/blog/business';
+import Technology from './pages/blog/technology';
+import Ux from './pages/blog/ux';
 
 function BaseStructure() {
-return (
-  <div>
-    <Navbar className='top_bar'/>
-    <Outlet/>
-    <Endbar/>
-  </div>
-);
+  return (
+    <div>
+      <Navbar className='top_bar'/>
+      <Outlet/>
+      <Endbar/>
+    </div>
+  );
 }
 
 
@@ -83,6 +87,9 @@ function App() {
             <Route path="aboutus" element={<About />} />
             <Route path="feedback" element={<Feedback />} />
             <Route path="blog" element={<Blog />} />
+            <Route path='blog/business' element={<Business />}/>
+            <Route path='blog/technology' element={<Technology />}/>
+            <Route path='blog/ux' element={<Ux />}/>
           </Route>
         </Routes>
       </div>

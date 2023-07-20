@@ -1,15 +1,3 @@
-.red-theme {
-    --primary: #cb1505;
-}
-
-.blue-theme {
-    --primary: #2034ba;
-}
-
-.yellow-theme {
-    --primary: #f3bc23;
-}
-
 .content {
     flex: 3;
     display: flex;
