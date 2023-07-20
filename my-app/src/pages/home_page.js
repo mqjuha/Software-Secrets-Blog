@@ -39,36 +39,45 @@ const top100Films = [
 
 function Home() {
 
+  const textPlaseHolder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.";
+
   // Get from database
   const topics = [
     {
       id: 1,
       title: "Title 1",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
-      img: ReactLogo
+      desc: textPlaseHolder,
+      img: ReactLogo,
+      theme: "red-theme"
     },
     {
       id: 2,
       title: "Title 2",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
-      img: ReactLogo
+      desc: textPlaseHolder,
+      img: ReactLogo,
+      theme: "blue-theme"
     },
     {
       id: 3,
       title: "Title 3",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
-      img: ReactLogo
+      desc: textPlaseHolder,
+      img: ReactLogo,
+      theme: "yellow-theme"
     }
   ]
 
+  
   return (
 
     <div className='wrapper'>
-      <p>HOME PAGE</p>  
+      <div className='content'>
+        <Typography className='header'>Title</Typography> 
+        <Typography>{textPlaseHolder}</Typography>
+      </div>
       <Highlights></Highlights>
       <div className='topics'>
         {topics.map(topic=>(
-          <div className='topic' key={topic.id}>
+          <div className={`topic ${topic.theme}`} key={topic.id}>
             <div className='img'>
               <img  src={topic.img} />
             </div>
@@ -79,7 +88,6 @@ function Home() {
           </div>
         ))}
       </div>
-      <p>jotain</p>
     </div>
 
   );
