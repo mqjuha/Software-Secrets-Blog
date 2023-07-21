@@ -47,21 +47,21 @@ function Home() {
       id: 1,
       title: "Title 1",
       desc: textPlaseHolder,
-      img: ReactLogo,
+      img: "https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_1280.jpg",
       theme: "red-theme"
     },
     {
       id: 2,
       title: "Title 2",
       desc: textPlaseHolder,
-      img: ReactLogo,
+      img: "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg",
       theme: "blue-theme"
     },
     {
       id: 3,
       title: "Title 3",
       desc: textPlaseHolder,
-      img: ReactLogo,
+      img: "https://cdn.pixabay.com/photo/2015/05/28/14/36/ux-787968_1280.jpg",
       theme: "yellow-theme"
     }
   ]
