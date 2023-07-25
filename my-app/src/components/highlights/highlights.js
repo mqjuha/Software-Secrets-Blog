@@ -2,20 +2,21 @@ import { Fragment } from "react";
 import ReactLogo from './../../logo.svg';
 
 import './highlights.css'
+import { Typography } from "@mui/material";
 
 
 function Abstract ({ className = '' })  {
     return (
-        <div className={`abstract ${className}`}>
+        <div className={`highlight-abstract ${className}`}>
             <Fragment>
-            <img src={ReactLogo} className="image" />
-                <h3 className="abstract-header">Otsikko</h3>
-                <p className="font">
+            <img src={ReactLogo} className="highlight-image" />
+                <Typography className="highlight-abstract-header" variant="h6">Otsikko</Typography>
+                <Typography className="highlight-font">
                     Lorem ipsum dolor sit amet, blandit ante, 
                     amet ac lectus pulvinar integer sit, et feugiat, 
                     eleifend ut ligula libero leo quam, nunc litora nunc. 
                     Fusce egestas justo mauris velit. 
-                </p>
+                </Typography>
             </Fragment>
         </div>
     );
@@ -23,9 +24,9 @@ function Abstract ({ className = '' })  {
 
 export default function Highlights () {
     return (
-        <div className="section">
-            <h2 className="light-header">Highlights</h2>
-            <div className="abstract-row">                   
+        <div className="highlight-section">
+            <h2 className="highlight-light-header">Highlights</h2>
+            <div className="highlight-abstract-row">                   
                 <Abstract className="red-theme"/>
                 <Abstract className="blue-theme"/>
                 <Abstract className="yellow-theme"/>

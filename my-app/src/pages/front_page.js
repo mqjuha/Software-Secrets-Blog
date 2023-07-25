@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from './../components/nav_bar/nav_bar';
-import './../layout.css'
+
+import Blogfilter from '../components/blog_filter/blog_filter';
+import BlogNavbar from '../components/blog_nav_bar/blog_nav_bar';
 
 function FrontPage() {
 
   return (
     <div>
-      <Navbar className='top_bar'></Navbar>
-      <p>Front Page of Blog</p>        
+      <BlogNavbar></BlogNavbar>
+      <p>Front Page of Blog</p>       
     </div>
   );
 }

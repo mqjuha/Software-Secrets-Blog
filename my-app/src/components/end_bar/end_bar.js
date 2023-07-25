@@ -2,16 +2,19 @@ import { Fragment } from "react";
 import ReactLogo from './../../logo.svg';
 
 import './end_bar.css'
+import { Typography } from "@mui/material";
 
 
 function Contact_info ({ className = '' })  {
     return (
         <div className={`contact-row ${className}`}>
             <Fragment>
-                <img src={ReactLogo} className="image" />
+                <div className="image">
+                    <img src={ReactLogo}  />
+                </div>
                 <div className="contact-info">
-                    <h3 className="abstract-header">Nimi Sukunimi</h3>
-                    <a>LinkedIn profile</a>
+                    <Typography className="abstract-text" variant="h6">Nimi Sukunimi</Typography>
+                    <a className="abstract-text">LinkedIn profile</a>
                 </div>
 
             </Fragment>
@@ -22,7 +25,7 @@ function Contact_info ({ className = '' })  {
 export default function Endbar () {
     return (
         <Fragment>
-            <div className="section">
+            <div className="end-section">
                 <Contact_info/>
                 <Contact_info/>
             </div>
