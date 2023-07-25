@@ -9,7 +9,9 @@ function Contact_info ({ className = '' })  {
     return (
         <div className={`contact-row ${className}`}>
             <Fragment>
-                <img src={ReactLogo} className="image" />
+                <div className="image">
+                    <img src={ReactLogo}  />
+                </div>
                 <div className="contact-info">
                     <Typography className="abstract-text" variant="h6">Nimi Sukunimi</Typography>
                     <a className="abstract-text">LinkedIn profile</a>
