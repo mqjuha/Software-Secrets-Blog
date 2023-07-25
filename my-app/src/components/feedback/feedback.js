@@ -56,17 +56,26 @@ const customIcons = {
     const sendEmail = (e) => {
       e.preventDefault();
 
-      emailjs.sendForm('service_3u94pwf',
+      var message = document.getElementById('free_feedback').value;
+
+      var templateParams = {
+        question1: 'XXX',
+        question2: 'XXX',
+        question3: message
+      };
+
+      emailjs.send(
+        'service_3u94pwf',
         'template_86p0tkk',
-        form.current,
+        templateParams,
         '2Nxivev2iyC5CDLQB'
         )
-        .then((result) => {
+        .then( function (result) {
             console.log(result.text);
         }, (error) => {
             console.log(error.text);
         });
-        e.target.reset();
+        
     };
 
     const [showForm, setShowForm] = useState(true);
@@ -77,37 +86,44 @@ const customIcons = {
       setShowButton(!showButton);
     };
 
+    const formReady = (event) => {
+      toggleButton();
+      sendEmail(event);
+    }
+
     return (
         <div className="section">
-          {
-              showForm?<form className="question-column" ref={form} onSubmit={sendEmail}>
-                <h2>Give us useful feedback to improve the website! :)</h2>
-                <div className='question'>
-                  <RadioGroupRating name='question1'></RadioGroupRating>         
-                  <RadioGroupRating name='question2'></RadioGroupRating>               
-                  <RadioGroupRating name='question3'></RadioGroupRating>                
-                  <RadioGroupRating name='question4'></RadioGroupRating>
-                </div>
-                <div className="question-column">
-                  <Typography className="font">Please give feedback !</Typography>  
-                  <TextField
-                    multiline
-                    rows={4}
-                    variant="outlined"
-                    color='secondary'
-                    fullWidth
-                    defaultValue="Thank you for the feedback!"
-                    name='free_feedback'
-                    style={{background: "white"}}
-                  />
-                  <Button
-                    className='send_button'
-                    type='submit'
-                    onClick={toggleButton}
-                    >
-                    Send Feedback
-                  </Button>
-                </div>
+            {
+              showForm?<form className="question-column" ref={form}>
+                  <h2>Give us useful feedback to improve the website! :)</h2>
+                  <div className='question'>
+                    
+                    <RadioGroupRating name='question1'></RadioGroupRating>         
+                    <RadioGroupRating name='question2'></RadioGroupRating>               
+                    <RadioGroupRating name='question3'></RadioGroupRating>                
+                    <RadioGroupRating name='question4'></RadioGroupRating>
+                  </div>
+                  <div className="question-column">
+                    <Typography className="font">Please give feedback !</Typography>  
+                    <TextField
+                      multiline
+                      rows={4}
+                      variant="outlined"
+                      color='secondary'
+                      fullWidth
+                      defaultValue="Thank you for the feedback!"
+                      name='free_feedback'
+                      id='free_feedback'
+                      style={{background: "white"}}
+                    />
+                    <Button
+                      className='send_button'
+                      type='submit'
+                      onClick={formReady}
+                      >
+                      Send Feedback
+                    </Button>
+                  </div>
               </form>: null
             }
             {

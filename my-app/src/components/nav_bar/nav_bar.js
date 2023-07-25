@@ -54,7 +54,7 @@ export default function Navbar() {
           <MenuItem onClick={() => navigateToPage('/aboutus')}>About Us</MenuItem>
         </Menu>
 
-        <button className='nav_button' onClick={() => navigateToPage('/')}>Home Page</button>
+        <button className='nav_button' onClick={() => navigateToPage('/feedback')}>Home Page</button>
         <button className='nav_button' onClick={() => navigateToPage('/blog')}>Blog</button>
         <button className='nav_button' onClick={() => navigateToPage('/aboutus')}>About Us</button>
 
