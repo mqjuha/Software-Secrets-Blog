@@ -39,7 +39,7 @@ export default function Navbar() {
 
     return (
       <nav className="navigation">
-        <img src={ReactLogo} className="logo" />
+        <img src={ReactLogo} className="navi-logo" />
 
 
 
@@ -48,17 +48,26 @@ export default function Navbar() {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={() => navigateToPage('/')}>Home Page</MenuItem>
+          <MenuItem onClick={() => navigateToPage('/')}>Home</MenuItem>
           <MenuItem onClick={() => navigateToPage('/blog')}>Blog</MenuItem>
           <MenuItem onClick={() => navigateToPage('/feedback')}>Feedback</MenuItem>
           <MenuItem onClick={() => navigateToPage('/aboutus')}>About Us</MenuItem>
         </Menu>
 
-        <button className='nav_button' onClick={() => navigateToPage('/feedback')}>Home Page</button>
-        <button className='nav_button' onClick={() => navigateToPage('/blog')}>Blog</button>
-        <button className='nav_button' onClick={() => navigateToPage('/aboutus')}>About Us</button>
+        <div>
+          <button className='nav_button' onClick={() => navigateToPage('/')}>Home</button>
+          <button className='nav_button' onClick={() => navigateToPage('/blog')}>Blog</button>
+          <button className='nav_button' onClick={() => navigateToPage('/feedback')}>Feedback</button>
+          <button className='nav_button' onClick={() => navigateToPage('/aboutus')}>About Us</button>
+        </div>
 
-
+        
+        <IconButton
+          className='menu-icon'
+          onClick={handleClick}
+        >
+          <MenuRoundedIcon className='nav-icon'/>
+        </IconButton>
 
       </nav>
     );
