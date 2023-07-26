@@ -18,11 +18,17 @@
     padding: 10px 12px;
     width: 10cm;
     max-width: 100%;
+    gap: 50px;
 }
 
 .question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     font-size: large;
+    gap: 10px;
 }
 
 .label-text {

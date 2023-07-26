@@ -44,9 +44,9 @@ const customIcons = {
     },
   };
 
-  const sendFeedbackToEmail = (message) => {
-    <a href="mailto:email@example.com">Click to Send an Email</a>
-  };
+  const ratings = [ ];
+
+
 
   export default function Feedbacks () {
 
@@ -59,9 +59,11 @@ const customIcons = {
       var message = document.getElementById('free_feedback').value;
 
       var templateParams = {
-        question1: 'XXX',
-        question2: 'XXX',
-        question3: message
+        question0: ratings[0],
+        question1: ratings[1],
+        question2: ratings[2],
+        question3: ratings[3],
+        textFeedback: message
       };
 
       emailjs.send(
@@ -96,14 +98,13 @@ const customIcons = {
             {
               showForm?<form className="question-column" ref={form}>
                   <h2>Give us useful feedback to improve the website! :)</h2>
-                  <div className='question'>
-                    
-                    <RadioGroupRating name='question1'></RadioGroupRating>         
-                    <RadioGroupRating name='question2'></RadioGroupRating>               
-                    <RadioGroupRating name='question3'></RadioGroupRating>                
-                    <RadioGroupRating name='question4'></RadioGroupRating>
+                  <div className='question-column'>
+                    <RadioGroupRating id='question1' question='What do you think about the blog?'number={0}></RadioGroupRating>         
+                    <RadioGroupRating id='question2' question='0' number={1}></RadioGroupRating>               
+                    <RadioGroupRating id='question3' question='1' number={2}></RadioGroupRating>                
+                    <RadioGroupRating id='question4' question='2' number={3}></RadioGroupRating>
                   </div>
-                  <div className="question-column">
+                  <div className="question">
                     <Typography className="font">Please give feedback !</Typography>  
                     <TextField
                       multiline
@@ -116,6 +117,8 @@ const customIcons = {
                       id='free_feedback'
                       style={{background: "white"}}
                     />
+                  </div>
+                  <div>
                     <Button
                       className='send_button'
                       type='submit'
@@ -127,7 +130,7 @@ const customIcons = {
               </form>: null
             }
             {
-              showButton?<div>
+              showButton?<div className="question-column">
               <h2>We appreciate your feedback! :)</h2>
               <Button 
                 className='send_button'
@@ -156,13 +159,17 @@ IconContainer.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function RadioGroupRating() {
+function RadioGroupRating(props) {
+
+    //const { value, ...other } = props;
 
     const [value, setValue] = React.useState(2);
 
+    ratings[props.number] = customIcons[value].label;
+
     return (
-        <div className='question-column'>
-          <Typography>What do you think about the blog?</Typography>
+        <div className='question'>
+          <Typography>{props.question}</Typography>
            
           <StyledRating
               name="highlight-selected-only"
@@ -172,6 +179,7 @@ function RadioGroupRating() {
 
               onChange={(event, newValue) => {
                   setValue(newValue);
+
               }}
               highlightSelectedOnly
           />
