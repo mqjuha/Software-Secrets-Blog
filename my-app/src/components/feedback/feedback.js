@@ -25,22 +25,27 @@ const customIcons = {
     1: {
       icon: <SentimentVeryDissatisfiedIcon color="error" />,
       label: 'Very Dissatisfied',
+      color: 'error',
     },
     2: {
       icon: <SentimentDissatisfiedIcon color="error" />,
       label: 'Dissatisfied',
+      color: 'error',
     },
     3: {
       icon: <SentimentSatisfiedIcon color="warning" />,
       label: 'Neutral',
+      color: 'warning.main',
     },
     4: {
       icon: <SentimentSatisfiedAltIcon color="success" />,
       label: 'Satisfied',
+      color: 'success.main',
     },
     5: {
       icon: <SentimentVerySatisfiedIcon color="success" />,
       label: 'Very Satisfied',
+      color: 'success.main',
     },
   };
 
@@ -94,54 +99,57 @@ const customIcons = {
     }
 
     return (
-        <div className="section">
-            {
-              showForm?<form className="question-column" ref={form}>
-                  <h2>Give us useful feedback to improve the website! :)</h2>
-                  <div className='question-column'>
-                    <RadioGroupRating id='question1' question='What do you think about the blog?'number={0}></RadioGroupRating>         
-                    <RadioGroupRating id='question2' question='0' number={1}></RadioGroupRating>               
-                    <RadioGroupRating id='question3' question='1' number={2}></RadioGroupRating>                
-                    <RadioGroupRating id='question4' question='2' number={3}></RadioGroupRating>
-                  </div>
-                  <div className="question">
-                    <Typography className="font">Please give feedback !</Typography>  
+      <div className="section">
+        {
+          showForm?<form className="question-column" ref={form}>
+              <h2>Give us useful feedback to improve the website! :)</h2>
+              <div className='question-column'>
+                <RadioGroupRating id='question1' question='What do you think about the blog?'number={0}></RadioGroupRating>         
+                <RadioGroupRating id='question2' question='0' number={1}></RadioGroupRating>               
+                <RadioGroupRating id='question3' question='1' number={2}></RadioGroupRating>                
+                <RadioGroupRating id='question4' question='2' number={3}></RadioGroupRating>
+
+                <div className='question'>
+                    <h6 className='question-text'>Please give feedback !</h6>  
                     <TextField
                       multiline
-                      rows={4}
-                      variant="outlined"
-                      color='secondary'
-                      fullWidth
+                      rows={5}
+                      variant="outlined"    
+                      sx={{
+                        background: "white",
+                        width: 500,
+                      }}
                       defaultValue="Thank you for the feedback!"
-                      name='free_feedback'
                       id='free_feedback'
-                      style={{background: "white"}}
+                      
                     />
-                  </div>
-                  <div>
-                    <Button
-                      className='send_button'
-                      type='submit'
-                      onClick={formReady}
-                      >
-                      Send Feedback
-                    </Button>
-                  </div>
-              </form>: null
-            }
-            {
-              showButton?<div className="question-column">
-              <h2>We appreciate your feedback! :)</h2>
-              <Button 
-                className='send_button'
-                onClick={toggleButton}
-                >
-                  Send more feedback
-              </Button>
-              </div>: null
-            }
-        </div>
-    );
+                </div>
+
+              </div>
+              <div>
+                <Button
+                  className='send_button'
+                  type='submit'
+                  onClick={formReady}
+                  >
+                  Send Feedback
+                </Button>
+              </div>
+          </form>: null
+        }
+        {
+          showButton?<div className="question-column">
+          <h2>We appreciate your feedback! :)</h2>
+          <Button 
+            className='send_button'
+            onClick={toggleButton}
+            >
+              Send more feedback
+          </Button>
+          </div>: null
+        }
+    </div>      
+  );
 }
 
 const StyledRating = styled(Rating)(({ theme }) => ({
@@ -169,7 +177,7 @@ function RadioGroupRating(props) {
 
     return (
         <div className='question'>
-          <Typography>{props.question}</Typography>
+          <h6 className='question-text'>{props.question}</h6>
            
           <StyledRating
               name="highlight-selected-only"
@@ -179,11 +187,11 @@ function RadioGroupRating(props) {
 
               onChange={(event, newValue) => {
                   setValue(newValue);
-
               }}
               highlightSelectedOnly
           />
-          <Typography>{customIcons[value].label}</Typography>
+
+          <Typography color={customIcons[value].color}>{customIcons[value].label}</Typography>
         </div>
     );
 }

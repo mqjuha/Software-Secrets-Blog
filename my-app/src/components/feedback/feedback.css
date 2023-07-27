@@ -1,12 +1,12 @@
-@import './../../themes.css';
-
 .section {
+    flex: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     background-color: var(--background);
+    text-align: center;
 }
 
 .question-column {
@@ -16,7 +16,6 @@
     justify-content: center;
     margin: auto 20px;
     padding: 10px 12px;
-    width: 10cm;
     max-width: 100%;
     gap: 50px;
 }
@@ -31,11 +30,10 @@
     gap: 10px;
 }
 
-.label-text {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.question-text {
+    font-size: x-large;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 .send_button {
@@ -46,4 +44,7 @@
     background-color: var(--foreground);
     color: var(--background);
     font-size: large;
+    margin-bottom: 50px;
+    margin-top: 0px;
+
 }
