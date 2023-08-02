@@ -52,7 +52,6 @@ const customIcons = {
   const ratings = [ ];
 
 
-
   export default function Feedbacks () {
 
     const form = useRef();
@@ -104,7 +103,7 @@ const customIcons = {
           showForm?<form className="question-column" ref={form}>
               <h2>Give us useful feedback to improve the website! :)</h2>
               <div className='question-column'>
-                <RadioGroupRating id='question1' question='What do you think about the blog?'number={0}></RadioGroupRating>         
+                <RadioGroupRating id='question1' question='What do you think about the blog?' number={0}></RadioGroupRating>         
                 <RadioGroupRating id='question2' question='0' number={1}></RadioGroupRating>               
                 <RadioGroupRating id='question3' question='1' number={2}></RadioGroupRating>                
                 <RadioGroupRating id='question4' question='2' number={3}></RadioGroupRating>
@@ -121,31 +120,30 @@ const customIcons = {
                       }}
                       defaultValue="Thank you for the feedback!"
                       id='free_feedback'
-                      
                     />
                 </div>
 
               </div>
-              <div>
-                <Button
-                  className='send_button'
-                  type='submit'
-                  onClick={formReady}
-                  >
-                  Send Feedback
-                </Button>
-              </div>
+              
+              <Button
+                className='send-button'
+                type='submit'
+                onClick={formReady}
+                >
+                Send Feedback
+              </Button>
+              
           </form>: null
         }
         {
           showButton?<div className="question-column">
-          <h2>We appreciate your feedback! :)</h2>
-          <Button 
-            className='send_button'
-            onClick={toggleButton}
-            >
-              Send more feedback
-          </Button>
+            <h2>We appreciate your feedback! :)</h2>
+            <Button 
+              className='send-button'
+              onClick={toggleButton}
+              >
+                Send more feedback
+            </Button>
           </div>: null
         }
     </div>      
@@ -169,8 +167,6 @@ IconContainer.propTypes = {
 
 function RadioGroupRating(props) {
 
-    //const { value, ...other } = props;
-
     const [value, setValue] = React.useState(2);
 
     ratings[props.number] = customIcons[value].label;
@@ -181,12 +177,13 @@ function RadioGroupRating(props) {
            
           <StyledRating
               name="highlight-selected-only"
-              defaultValue={2}
               IconContainerComponent={IconContainer}
               getLabelText={(value) => customIcons[value].label}
-
+              value={value}
               onChange={(event, newValue) => {
-                  setValue(newValue);
+                if ( newValue !== null ) {
+                    setValue(newValue);
+                }   
               }}
               highlightSelectedOnly
           />

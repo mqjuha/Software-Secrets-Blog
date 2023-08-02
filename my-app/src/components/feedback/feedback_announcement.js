@@ -23,17 +23,15 @@ export default function FeedbackAnnouncement() {
                     
                     <div justify="space-between">
                         <Typography className='left-text'
-                        >Give feedback on 
+                            >Give feedback on 
                         </Typography>
                         
                         <Link className='right-text' to='/feedback'
-
-                            >Feedback page</Link>
+                            >Feedback page
+                        </Link>
                     </div>
                 </div>
             </div>
         </Fragment>
     );
-  }
-
-  // 
+}
