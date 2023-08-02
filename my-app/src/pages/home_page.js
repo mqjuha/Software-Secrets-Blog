@@ -5,6 +5,7 @@ import './home_page.css'
 import ReactLogo from './../logo.svg';
 
 import Highlights from '../components/highlights/highlights';
+import FeedbackAnnouncement from '../components/feedback/feedback_announcement';
 import { Typography } from '@mui/material';
 
 const top100Films = [
@@ -88,6 +89,7 @@ function Home() {
           </div>
         ))}
       </div>
+      <FeedbackAnnouncement></FeedbackAnnouncement>
     </div>
 
   );
