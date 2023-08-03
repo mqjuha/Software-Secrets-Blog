@@ -29,9 +29,15 @@ import Business from './pages/blog/business';
 import Technology from './pages/blog/technology';
 import Ux from './pages/blog/ux';
 
+import banner from './images/home_page_banner.jpg'
+
 function BaseStructure() {
   return (
     <div>
+      <div className='banner'>
+        <img id='banner_image' src={banner}/>
+        <h1 id='banner-header'></h1>
+      </div>
       <Navbar className='top_bar'/>
       <Outlet/>
       <Endbar/>
