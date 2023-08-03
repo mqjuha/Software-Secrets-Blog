@@ -11,22 +11,31 @@ export default function ComparisonDiagram ({variant = "comp2"|"comp3", titles = 
             case 'comp2':
                 return (
                     <div className="container">
-                        <div>
-                            <div className="circle first">
-                                <Typography>{titles[0]}</Typography>
-                                <Typography>{contents[0]}</Typography>
-                            </div>
-                            <div className="circle second">
-                                <Typography>{titles[1]}</Typography>
-                                <Typography>{contents[1]}</Typography>
-                            </div>
+                        <div className="circle first">
+                            <Typography>{titles[0]}</Typography>
+                            <Typography>{contents[0]}</Typography>
+                        </div>
+                        <div className="circle second">
+                            <Typography>{titles[1]}</Typography>
+                            <Typography>{contents[1]}</Typography>
                         </div>
                     </div>
                 );
             case 'comp3':
                 return (
-                    <div>
-
+                    <div className="container higher">
+                        <div className="circle first">
+                            <Typography>{titles[0]}</Typography>
+                            <Typography>{contents[0]}</Typography>
+                        </div>
+                        <div className="circle second">
+                            <Typography>{titles[1]}</Typography>
+                            <Typography>{contents[1]}</Typography>
+                        </div>
+                        <div className="circle third">
+                            <Typography>{titles[1]}</Typography>
+                            <Typography>{contents[1]}</Typography>
+                        </div>
                     </div>
                 );
             default:

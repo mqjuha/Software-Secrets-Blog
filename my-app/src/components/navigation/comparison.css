@@ -1,42 +1,46 @@
 .comparison {
-    width: 100%;
-    max-width: 1000px;
-    height: 70vw;
-    max-height: ;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    padding: 50px;
+
 }
 .container {
     position: relative;
-    width: 100%;
-    height: 100%;
-
-    padding: 10vw;
+    height: 40vh;
+    max-height: 50vw;
+    aspect-ratio: 1/1;
 
     .circle {
         position: absolute;
 
-        width: 50%;
+        width: 100%;
         aspect-ratio: 1/1;
 
         border-radius: 50%;
         border: 5px;
         border-style: solid;
-
         border-color: var(--primary);
     }
 
     .first {
-        right: 10vw;
-
-
-
-
-    
+        right: 25%;
+        top: 0;
     }
 
     .second {
-        left: 10vw;
-        
-    
+        left: 25%;
+        top: 0;
     }
+
+    .third {
+        top: 30%;
+    }
+}
+
+.higher {
+    height: 60vh;
+    max-height: 50vw;
+    aspect-ratio: 2/3;
 }
 

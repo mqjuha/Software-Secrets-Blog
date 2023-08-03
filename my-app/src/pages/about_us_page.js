@@ -7,7 +7,7 @@ function About() {
     <div>
       <p>About Us</p>  
       <ComparisonDiagram 
-        variant="comp2" 
+        variant="comp3" 
         titles={["otsikko1", "otsikko2"]} 
         contents={["liibalaabaa", "luubaliibaa"]}
       /> 
