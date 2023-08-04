@@ -10,6 +10,7 @@ import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 
+
 import './feedback.css'
 
 import { TextField, Button, Typography } from '@mui/material';
@@ -19,7 +20,6 @@ import emailjs from '@emailjs/browser';
 
 //import Pagination from '@mui/material/Pagination';
 //import Stack from '@mui/material/Stack';
-
 
 const customIcons = {
     1: {
@@ -50,7 +50,6 @@ const customIcons = {
   };
 
   const ratings = [ ];
-
 
   export default function Feedbacks () {
 
@@ -109,18 +108,21 @@ const customIcons = {
                 <RadioGroupRating id='question4' question='2' number={3}></RadioGroupRating>
 
                 <div className='question'>
-                    <h6 className='question-text'>Please give feedback !</h6>  
+                    <h6 className='question-text'>Please give feedback !</h6>
+
+                     
                     <TextField
                       multiline
                       rows={5}
-                      variant="outlined"    
+                      variant="outlined"
+                      fullWidth 
                       sx={{
                         background: "white",
-                        width: 500,
                       }}
                       defaultValue="Thank you for the feedback!"
                       id='free_feedback'
                     />
+                    
                 </div>
 
               </div>
