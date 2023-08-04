@@ -3,6 +3,8 @@ import * as React from 'react';
 import Blogfilter from '../components/blog_filter/blog_filter';
 import BlogNavbar from '../components/blog_nav_bar/blog_nav_bar';
 
+import References from '../components/references/references.js';
+
 import blog_banner from '../images/blog_banner.jpg'
 
 function FrontPage() {
@@ -15,7 +17,8 @@ function FrontPage() {
   return (
     <div>
       <BlogNavbar></BlogNavbar>
-      <p>Front Page of Blog</p>       
+      <p>Front Page of Blog</p>
+      <References></References>    
     </div>
   );
 }
