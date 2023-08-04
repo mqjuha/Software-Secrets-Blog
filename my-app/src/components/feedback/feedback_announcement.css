@@ -1,6 +1,6 @@
 .info-section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     margin-top: 0px;
@@ -16,6 +16,7 @@
     color: var(--background);
     align-items: center;
     text-align: center;
+    margin: 10px;
 }
 
 .feedback-header {
@@ -26,6 +27,7 @@
 .left-text {
     display: inline;
     align-items: left;
+
 }
 
 .right-text {
@@ -34,4 +36,5 @@
     color: dodgerblue;
     font-size: 20px;
     margin-left: 10px;
+
 }
