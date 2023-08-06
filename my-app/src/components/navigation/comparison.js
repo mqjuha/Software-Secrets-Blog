@@ -13,11 +13,11 @@ export default function ComparisonDiagram ({variant = "comp2"|"comp3", titles = 
                     <div className="container">
                         <div className="circle first">
                             <Typography>{titles[0]}</Typography>
-                            <Typography>{contents[0]}</Typography>
+                            <Typography className="box-context">{contents[0]}</Typography>
                         </div>
                         <div className="circle second">
                             <Typography>{titles[1]}</Typography>
-                            <Typography>{contents[1]}</Typography>
+                            <Typography className="box-context">{contents[1]}</Typography>
                         </div>
                     </div>
                 );
@@ -27,19 +27,19 @@ export default function ComparisonDiagram ({variant = "comp2"|"comp3", titles = 
                         <div className="circle first">
                             <div className="textbox">
                                 <Typography>{titles[0]}</Typography>
-                                <Typography>{contents[0]}</Typography>
+                                <Typography className="box-context">{contents[0]}</Typography>
                             </div>
                         </div>
                         <div className="circle second">
                             <div className="textbox">
                                 <Typography>{titles[1]}</Typography>
-                                <Typography>{contents[1]}</Typography>
+                                <Typography className="box-context">{contents[1]}</Typography>
                             </div>
                         </div>
                         <div className="circle third">
                             <div className="textbox">
-                                <Typography>{titles[1]}</Typography>
-                                <Typography>{contents[1]}</Typography>
+                                <Typography>{titles[2]}</Typography>
+                                <Typography className="box-context">{contents[2]}</Typography>
                             </div>
                         </div>
                     </div>

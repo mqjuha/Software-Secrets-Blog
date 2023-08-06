@@ -8,8 +8,8 @@ function About() {
       <p>About Us</p>  
       <ComparisonDiagram 
         variant="comp3" 
-        titles={["otsikko1", "otsikko2"]} 
-        contents={["liibalaabaa", "luubaliibaa"]}
+        titles={["otsikko1", "otsikko2", "otsikko 3"]} 
+        contents={["liibalaabaa", "luubaliibaa","mfmgldj"]}
       /> 
     </div>
   );
