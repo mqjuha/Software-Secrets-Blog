@@ -5,6 +5,22 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 
+import cors from 'cors';
+
+// const express = require('express');
+
+// const app = express();
+
+// app.use(cors());
+// app.use(express.json());
+
+// app.post('/', (req,res) => {
+//   const {name, context} = req.body;
+//   res.json('test ok')
+// });
+
+// app.listen(3000);
+
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 

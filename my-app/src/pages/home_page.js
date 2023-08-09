@@ -37,6 +37,8 @@ const top100Films = [
   }
 ]
 
+
+
 function Home() {
 
   const textPlaseHolder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.";
@@ -66,6 +68,18 @@ function Home() {
     }
   ]
 
+  const testname = 'testi3';
+  const content = 'toimii3';
+
+  async function test(e) {
+    e.preventDefault();
+    await fetch('http://localhost:3000', {
+      method: 'POST',
+      body: JSON.stringify({testname, content}),
+      headers: {'Content-Type':'application/json'},
+      credentials: "omit",
+    })
+  }
   
   return (
 
@@ -88,6 +102,7 @@ function Home() {
           </div>
         ))}
       </div>
+      <button onClick={test}>TESTI</button>
     </div>
 
   );
