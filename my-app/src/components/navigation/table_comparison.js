@@ -1,46 +1,72 @@
 import './table_comparison.css';
 
-// Example of a data array that
-// you might receive from an API
-const data = [
+// Example of a data array that we might receive from an API
+const test_data = [
+    { header: "header1", feature1: 'column 1.1', feature2: "column 1.2" },
+    { header: "header2", feature1: 'column 2.1', feature2: "column 2.2" },
+    { header: "header1", feature1: 'column 1.1', feature2: "column 1.2" },
+    { header: "header2", feature1: 'column 2.1', feature2: "column 2.2" },
+    { header: "header1", feature1: 'column 1.1', feature2: "column 1.2" },
+    { header: "header2", feature1: 'column 2.1', feature2: "column 2.2" },
+    { header: "header1", feature1: 'column 1.1', feature2: "column 1.2" },
+    { header: "header2", feature1: 'column 2.1', feature2: "column 2.2" },
+    { header: "header1", feature1: 'column 1.1', feature2: "column 1.2" },
+    { header: "header2", feature1: 'column 2.1', feature2: "column 2.2" },
+    { header: "header1", feature1: 'column 1.1', feature2: "column 1.2" },
+    { header: "header2", feature1: 'column 2.1', feature2: "column 2.2" },
+    { header: "header1", feature1: 'column 1.1', feature2: "column 1.2" },
+    { header: "header2", feature1: 'column 2.1', feature2: "column 2.2" },
     { header: "header1", feature1: 'column 1.1', feature2: "column 1.2" },
     { header: "header2", feature1: 'column 2.1', feature2: "column 2.2" },
 ]
 
 function Table() {
 
-    console.log(data.length); //2
+    //console.log(data.length); //2
+
+    //console.log(Object.keys(data[0])); // ['header', 'feature1', 'feature2']
 
     //console.log(Object.keys(data[0]).length); //3
 
     //console.log(Object.keys(data[0])[0]); //header
 
-    const getNameOfFeatures = () => {
+    const getTableHeaders = () => {
 
-        {Object.keys(data[0]).map((item) => {
-            return (
-                <tr>
-                    <th>{item}</th>
-                </tr>
-            )
-        })}
+        // Headers of the table are taken from the key
+        var features = Object.keys(test_data[0]);
+
+        return (
+          <tr>
+            {
+              features.map((item) => (
+                <th className='th-row'>{item}</th>
+              ))
+            }
+          </tr>
+        )
     }
 
-    const getTableBodyAsReactElement = () => {
+    const getTableBody = () => {
     
-        return (!data) ? null : (
+        return (!test_data) ? null : (
           <tbody>
-            {data.map((item) => {
+            {test_data.map((item) => {
 
-              console.log('item: ', item);
+              //console.log('item: ', item);
 
               return (
                 <tr>
                   {Object.entries(item).map((field) => {
 
-                    console.log('field: ', field);
+                    //console.log('field: ', field);
 
-                    return <td>{field[1]}</td> // 0 -> keys, 1 -> values
+                    if ( field[0] === 'header' ) {
+                      return <th className='th-column'>{field[1]}</th>
+                    }
+                    else {
+                      return <td>{field[1]}</td> // 0 -> keys, 1 -> values
+                    }
+                    
                   })}
                 </tr>
               );
@@ -52,8 +78,8 @@ function Table() {
     return (
         <div className='table-section'>
             <table>
-                {getNameOfFeatures()}
-                {getTableBodyAsReactElement()}
+                {getTableHeaders()}
+                {getTableBody()}
             </table>
         </div>
 
@@ -112,3 +138,5 @@ export default Table;
                 </tr>
               );
 */
+
+//{getTableBodyAsReactElement()}

@@ -16,7 +16,12 @@ function FrontPage() {
   }, 60);
 
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      }}>
       <BlogNavbar></BlogNavbar>
       <p>Front Page of Blog</p>
       <TableComparison></TableComparison>
