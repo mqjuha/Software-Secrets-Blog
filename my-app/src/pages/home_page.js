@@ -68,8 +68,8 @@ function Home() {
     }
   ]
 
-  const testname = 'testi3';
-  const content = 'toimii3';
+  const testname = 'testi4';
+  const content = 'toimii4';
 
   async function test(e) {
     e.preventDefault();
