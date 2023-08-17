@@ -1,4 +1,4 @@
-import './timeline.css'
+import './timeline_horizontal.css'
 
 const test_items = [
 	{ name: 'Moi mitä kuuluuu', active: true, },

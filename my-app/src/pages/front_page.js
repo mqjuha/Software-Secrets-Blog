@@ -5,8 +5,8 @@ import BlogNavbar from '../components/blog_nav_bar/blog_nav_bar';
 
 import References from '../components/references/references.js';
 import TableComparison from '../components/navigation/table_comparison.js';
-import Timeline from '../components/navigation/timeline.js';
-import Timeline2 from '../components/navigation/timeline2.js';
+import TimelineHorizontal from '../components/navigation/timeline_horizontal.js';
+import TimelineVertical from '../components/navigation/timeline_vertical.js';
 
 import blog_banner from '../images/blog_banner.jpg'
 
@@ -26,8 +26,8 @@ function FrontPage() {
       }}>
       <BlogNavbar></BlogNavbar>
       <p>Front Page of Blog</p>
-      <Timeline2></Timeline2>
-      <Timeline></Timeline>
+      <TimelineVertical></TimelineVertical>
+      <TimelineHorizontal></TimelineHorizontal>
       <TableComparison></TableComparison>
       <References></References>    
     </div>
