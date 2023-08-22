@@ -40,6 +40,8 @@ const top100Films = [
   }
 ]
 
+
+
 function Home() {
 
   // make sure that the img element exists and that it has been rendered to the DOM before you try to set its src property. 
@@ -76,6 +78,18 @@ function Home() {
     }
   ]
 
+  const testname = 'testi4';
+  const content = 'toimii4';
+
+  async function test(e) {
+    e.preventDefault();
+    await fetch('http://localhost:3000', {
+      method: 'POST',
+      body: JSON.stringify({testname, content}),
+      headers: {'Content-Type':'application/json'},
+      credentials: "omit",
+    })
+  }
   
   return (
 
@@ -99,6 +113,7 @@ function Home() {
         ))}
       </div>
       <FeedbackAnnouncement></FeedbackAnnouncement>
+      <button onClick={test}>TESTI</button>
     </div>
 
   );

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ComparisonDiagram from '../components/navigation/comparison';
 
 import about_us_banner from '../images/about_us_banner.jpg';
 
@@ -11,7 +12,12 @@ function About() {
 
   return (
     <div>
-      <p>About Us</p>      
+      <p>About Us</p>  
+      <ComparisonDiagram 
+        variant="comp3" 
+        titles={["otsikko1", "otsikko2", "otsikko 3"]} 
+        contents={["liibalaabaa", "luubaliibaa","mfmgldj"]}
+      /> 
     </div>
   );
 }
