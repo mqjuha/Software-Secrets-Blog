@@ -9,16 +9,18 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 
+import { styled } from '@mui/material/styles';
+
 import {Link} from 'react-router-dom';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const test_items = [
-	{ link: '/feedback', main_text: 'MAIN TEXT', secondary_text: null, dot_color: 'secondary', },
+	{ link: '/feedback', main_text: 'MAIN TEXT', dot_color: 'secondary', },
 	{ link: 'https://medium.com/@bfgmartin/what-is-a-product-manager-ce0efdcf114c', main_text: 'MAIN TEXT 2', secondary_text: 'secondary', dot_color: 'secondary', },
-    { link: null, main_text: 'MAIN TEXT 3', secondary_text: 'secondary', dot_color: 'success', },
-    { link: '', main_text: 'MAIN TEXT 4', secondary_text: 'secondary', dot_color: 'success', },
+    { main_text: 'MAIN TEXT 3', secondary_text: 'secondary', dot_color: 'success', },
+    { main_text: 'MAIN TEXT 4', secondary_text: null, dot_color: 'success', },
 ]
 
 function TimelineVertical() {
@@ -39,7 +41,7 @@ function TimelineVertical() {
                             { i !== test_items.length - 1 && <TimelineConnector />}
                         </TimelineSeparator>
                         <TimelineContent>
-                            { item.link !== null ?
+                            { "link" in item ?
                             (
                                 <Link 
                                     className='timeline-ver-link'
