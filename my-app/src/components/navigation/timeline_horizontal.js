@@ -5,11 +5,11 @@ import {Link} from 'react-router-dom';
 const test_items = [
 	{ link: '/feedback', name: 'Moi mitä kuuluuu', active: true, },
 	{ link: 'https://medium.com/@bfgmartin/what-is-a-product-manager-ce0efdcf114c', name: 'Step 2', active: true, },
-    { link: null, name: 'Step 3', active: true, },
-    { link: null, name: 'Step 4', active: true, },
-    { link: null, name: 'Step 1', active: true, },
-	{ link: null, name: 'Tässä stepissä tehdää sitä ja tätä :)', active: false, },
-    { link: null, name: 'Step 3', active: false, },
+    { name: 'Step 3', active: true, },
+    { name: 'Step 4', active: false, },
+    { name: 'Step 1', active: true, },
+	{ name: 'Tässä stepissä tehdää sitä ja tätä :)', active: false, },
+    { link: "", name: 'Step 3', active: false, },
     { link: null, name: 'Step 4', active: false, },
 
 ]
@@ -33,7 +33,7 @@ function Timeline() {
                     {test_items.map((item, i) => (
                         <div key={i} className={"timeline-item" + (item.active ? ' active' : '')}>
                             <div className="timeline-content">
-                                { item.link !== null ?
+                                { "link" in item ?
                                 (
                                     <Link 
                                         className='timeline-hor-link'
