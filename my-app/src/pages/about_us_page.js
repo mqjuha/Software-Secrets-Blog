@@ -1,7 +1,11 @@
 import * as React from 'react';
-import ComparisonDiagram from '../components/navigation/comparison';
+import { Typography } from "@mui/material";
 
+import ComparisonDiagram from '../components/navigation/comparison';
 import about_us_banner from '../images/about_us_banner.jpg';
+import Person from '../components/about_me/about_me.js';
+
+const info_text = "On this page you can find information about us. Feel free to contact us!"
 
 function About() {
 
@@ -12,7 +16,11 @@ function About() {
 
   return (
     <div>
-      <p>About Us</p>  
+      <div className='content'>
+        <Typography className='header'>About Us</Typography> 
+        <Typography>{info_text}</Typography>
+      </div>
+      <Person></Person>
       <ComparisonDiagram 
         variant="comp3" 
         titles={["otsikko1", "otsikko2", "otsikko 3"]} 
