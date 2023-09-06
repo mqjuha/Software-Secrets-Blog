@@ -27,7 +27,6 @@
 .left-text {
     display: inline;
     align-items: left;
-
 }
 
 .right-text {
@@ -36,5 +35,4 @@
     color: dodgerblue;
     font-size: 20px;
     margin-left: 10px;
-
 }
