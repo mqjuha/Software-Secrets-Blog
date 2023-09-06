@@ -1,0 +1,17 @@
+.timeline-ver-section {
+	width: 50%;
+	max-height: 800px;
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 5px;
+	overflow: auto;
+	color: #13232f;
+}
+
+.timeline-ver-link {
+	color: #13232f;
+}
