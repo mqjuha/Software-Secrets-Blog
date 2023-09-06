@@ -13,20 +13,20 @@ import Email from '@mui/icons-material/Email';
 
 const persons = [
     { 
-        name: 'Julia',
-        job: 'Student & Research Assistant',
+        name: 'First Last',
+        job: 'Student',
         desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.',
-        img: "https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_1280.jpg",
-        linkedin: 'https://www.linkedin.com/in/julia-harttunen-32665617b/',
-        email: 'julia.harttunen@tuni.fi',
+        img: "https://cdn.pixabay.com/photo/2015/04/17/03/01/the-locale-726512_1280.jpg",
+        linkedin: '',
+        email: 'first.last@gmail.com',
     },
     { 
-        name: 'Krista',
-        job: 'Student & Research Assistant',
+        name: 'First Last',
+        job: 'Student',
         desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.',
-        img: "https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_1280.jpg",
+        img: "https://cdn.pixabay.com/photo/2019/02/08/15/34/girl-3983410_1280.jpg",
         linkedin: '',
-        email: 'krista.matasniemi@tuni.fi',
+        email: 'first.last@gmail.com',
     },
 ]
 
@@ -42,27 +42,25 @@ export default function PersonalInfo() {
                         </div>
                         <div className='side'>
                             <div className='person-content'>
-                                <Typography className='header'>{person.name}</Typography>
-                                <Typography className='header'>{person.job}</Typography>
+                                <Typography className='person_header'>{person.name}</Typography>
+                                <Typography className='person_header'>{person.job}</Typography>
 
                                 <Typography>{person.desc}</Typography>
 
-                                <div className="contact-info-container">
-                                    <div className='side'>
+                                <div className='contact-info'>
+                                    <div className="contact-info-container">
                                         <LinkedInIcon></LinkedInIcon>
+                                        <Link className='link' to={person.linkedin}
+                                            >LinkedIn
+                                        </Link>
                                     </div>
-                                    <Link className='side' to={person.linkedin}
-                                        >LinkedIn
-                                    </Link>
-                                </div>
 
-                                <div className="contact-info-container">
-                                    <div className='side'>
+                                    <div className="contact-info-container">
                                         <EmailIcon></EmailIcon>
+                                        <Typography
+                                            >{person.email}
+                                        </Typography>
                                     </div>
-                                    <Typography className='side'
-                                        >{person.email}
-                                    </Typography>
                                 </div>
 
                             </div>

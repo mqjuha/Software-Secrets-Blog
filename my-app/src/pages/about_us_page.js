@@ -5,7 +5,7 @@ import ComparisonDiagram from '../components/navigation/comparison';
 import about_us_banner from '../images/about_us_banner.jpg';
 import Person from '../components/about_me/about_me.js';
 
-const info_text = "On this page you can find information about us. Feel free to contact us!"
+const info_text = "On this page you can get to know us. Feel free to contact us!"
 
 function About() {
 
