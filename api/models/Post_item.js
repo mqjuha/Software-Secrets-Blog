@@ -1,5 +1,3 @@
-_id, title, cover, abstract, nav, content, summary, references
-
 const mongoose = require('mongoose');
 const {Schema, model} = mongoose;
 
