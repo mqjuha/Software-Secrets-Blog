@@ -1,6 +1,19 @@
 import { Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-export default function Post({title, abstract, nav, content, summary, references}){
+
+export default function PostPage({_id, title, cover, abstract, nav, content, summary, references}){
+    const [postInfo, setPostInfo] = useState(null);
+    const {id} = useParams();
+    useEffect(() => {
+        fetch(`http://localhost:3000/post/${id}`)
+        .then(response => {
+            response.json(postinfo => {
+                setPostInfo(postInfo);
+            });
+        });
+    }, []);
 
     return (
         <div className="article">
