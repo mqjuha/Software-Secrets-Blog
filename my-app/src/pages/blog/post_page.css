@@ -17,6 +17,12 @@
         border-bottom: 5px;
         border-bottom-color: var(--primary);
         border-bottom-style: solid;
+
+        .keywords {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
  
     }
 

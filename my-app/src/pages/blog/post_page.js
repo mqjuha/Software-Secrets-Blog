@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import './post_page.css'
+import Keyword from "../../components/keyword/keyword";
 
 
 export default function PostPage(){
@@ -27,6 +28,13 @@ export default function PostPage(){
         <div className="article">
             <div className="intro-element">
                 <Typography variant="h3">{postInfo.title}</Typography>
+                <Typography>12.4.2023</Typography>
+                <div className="keywords">
+                    <Keyword word="AVAINSANA"></Keyword>
+                    <Keyword word="AVAINSANA"></Keyword>
+                    <Keyword word="AVAINSANA"></Keyword>
+                    <Keyword word="AVAINSANA"></Keyword>
+                </div>
                 <Typography>{postInfo.abstract}</Typography>
             </div>
             <div className="nav-element">
