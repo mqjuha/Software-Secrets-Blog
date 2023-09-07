@@ -5,6 +5,8 @@ import ComparisonDiagram from '../components/navigation/comparison';
 import about_us_banner from '../images/about_us_banner.jpg';
 import Person from '../components/about_me/about_me.js';
 
+import { useEffect, useState } from "react";
+
 const info_text = "On this page you can get to know us. Feel free to contact us!"
 
 function About() {
@@ -14,13 +16,32 @@ function About() {
     document.getElementById("banner-header").innerHTML = '';
   }, 60);
 
+  const [us, setUs] = useState([]);
+  useEffect(() => {
+    let x = true;
+
+    if (x) {
+
+      fetch('http://localhost:3001/aboutus', {method: "GET"}).then(response => {
+          response.json().then( persons => {
+            //console.log(persons);
+              setUs(persons);
+          });
+      });
+    }
+    return () => {setUs([])}
+
+  }, []);
+
+  console.log(us);
+
   return (
     <div>
       <div className='content'>
         <Typography className='header'>About Us</Typography> 
         <Typography>{info_text}</Typography>
       </div>
-      <Person></Person>
+      <Person persons={us}></Person>
       <ComparisonDiagram 
         variant="comp3" 
         titles={["otsikko1", "otsikko2", "otsikko 3"]} 
