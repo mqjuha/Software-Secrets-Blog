@@ -28,6 +28,7 @@ import BlogNavbar from './components/blog_nav_bar/blog_nav_bar';
 import Business from './pages/blog/business';
 import Technology from './pages/blog/technology';
 import Ux from './pages/blog/ux';
+import PostPage from './pages/blog/post_page';
 
 function BaseStructure() {
   return (
@@ -90,6 +91,7 @@ function App() {
             <Route path='blog/business' element={<Business />}/>
             <Route path='blog/technology' element={<Technology />}/>
             <Route path='blog/ux' element={<Ux />}/>
+            <Route path='/post/:id' element={<PostPage />} />
           </Route>
         </Routes>
       </div>
