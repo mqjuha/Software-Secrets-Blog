@@ -21,9 +21,8 @@ function FrontPage() {
     console.log('fetch');
       fetch('http://localhost:3001/blog', {method: "GET"}).then(response => {
         console.log(response);
-          response.json().then(postss => {
-            //console.log(postss);
-              setPosts(postss);
+          response.json().then(postArr => {
+              setPosts(postArr);
           });
       });
     }

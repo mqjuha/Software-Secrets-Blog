@@ -38,7 +38,6 @@ app.get('/blog', async (req,res) => {
 
 app.get('/blog/:id', async (req, res) => {
     const {id} = req.params;
-    console.log({id})
     res.json(
         await Post.findById(id)
     );

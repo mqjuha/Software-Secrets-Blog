@@ -2,6 +2,8 @@ import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import './post_page.css'
+
 
 export default function PostPage(){
     const [postInfo, setPostInfo] = useState([]);
@@ -24,7 +26,7 @@ export default function PostPage(){
     return (
         <div className="article">
             <div className="intro-element">
-                <Typography>{postInfo.title}</Typography>
+                <Typography variant="h3">{postInfo.title}</Typography>
                 <Typography>{postInfo.abstract}</Typography>
             </div>
             <div className="nav-element">
@@ -34,6 +36,7 @@ export default function PostPage(){
                 
             </div>
             <div className="summary-element">
+                <Typography variant="h4">Summary</Typography>
                 <Typography>{postInfo.summary}</Typography>
             </div>
             
