@@ -91,7 +91,7 @@ function App() {
             <Route path='blog/business' element={<Business />}/>
             <Route path='blog/technology' element={<Technology />}/>
             <Route path='blog/ux' element={<Ux />}/>
-            <Route path='/post/:id' element={<PostPage />} />
+            <Route path='/blog/:id' element={<PostPage />} />
           </Route>
         </Routes>
       </div>

@@ -3,23 +3,29 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 
-export default function PostPage({_id, title, cover, abstract, nav, content, summary, references}){
-    const [postInfo, setPostInfo] = useState(null);
+export default function PostPage(){
+    const [postInfo, setPostInfo] = useState([]);
     const {id} = useParams();
+    console.log("post page");
+
     useEffect(() => {
-        fetch(`http://localhost:3000/post/${id}`)
+        fetch(`http://localhost:3001/blog/${id}`)
         .then(response => {
-            response.json(postinfo => {
-                setPostInfo(postInfo);
+            console.log(response);
+            response.json().then(info => {
+                setPostInfo(info);
+                console.log("postInfo");
             });
         });
     }, []);
 
+    if (!postInfo) return '';
+
     return (
         <div className="article">
             <div className="intro-element">
-                <Typography>{title}</Typography>
-                <Typography>{abstract}</Typography>
+                <Typography>{postInfo.title}</Typography>
+                <Typography>{postInfo.abstract}</Typography>
             </div>
             <div className="nav-element">
                 
@@ -28,7 +34,7 @@ export default function PostPage({_id, title, cover, abstract, nav, content, sum
                 
             </div>
             <div className="summary-element">
-                <Typography>{summary}</Typography>
+                <Typography>{postInfo.summary}</Typography>
             </div>
             
         </div>
