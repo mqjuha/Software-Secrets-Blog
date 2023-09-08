@@ -10,31 +10,42 @@ import TimelineVertical from '../components/navigation/timeline_vertical.js';
 import blog_banner from '../images/blog_banner.jpg'
 import { useEffect, useState } from "react";
 
+let x = true;
+
 function FrontPage() {
+
+  console.log("Front page!");
 
   setTimeout(() => {
     document.getElementById('banner_image').src = blog_banner;
     document.getElementById("banner-header").innerHTML = '';
   }, 60);
 
-  const [timelinesVer, setTimelinesVer] = useState([]);
+  console.log("After timeout");
+
+  const [timelineVer, setTimelineVer] = useState(null);
   useEffect(() => {
-    let x = true;
+
+    console.log("X=", x);
 
     if (x) {
 
-      fetch('http://localhost:3001/blog', {method: "GET"}).then(response => {
-          response.json().then( verLines => {
-            //console.log(verLines);
-            setTimelinesVer(verLines);
+      fetch('http://localhost:3001/blog', {method: "GET"}).then
+      (response => {
+          console.log(response);
+          response.json().then( verLine => {
+            console.log(verLine);
+            setTimelineVer(verLine);
           });
       });
-    }
-    return () => {setTimelinesVer([])}
 
+      x = false;
+
+      return () => {setTimelineVer(null)}
+    }
   }, []);
 
-  console.log(timelinesVer);
+  console.log(timelineVer);
 
   return (
     <div style={{
@@ -43,12 +54,8 @@ function FrontPage() {
       alignItems: 'center',
       justifyContent: 'center',
       }}>
-      <BlogNavbar></BlogNavbar>
       <p>Front Page of Blog</p>
-      <TimelineVertical timelines={timelinesVer}></TimelineVertical>
-      <TimelineHorizontal></TimelineHorizontal>
-      <TableComparison></TableComparison>
-      <References></References>    
+      <TimelineVertical timeline={timelineVer}></TimelineVertical> 
     </div>
   );
 }

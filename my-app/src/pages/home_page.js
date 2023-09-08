@@ -83,7 +83,7 @@ function Home() {
 
   async function test(e) {
     e.preventDefault();
-    await fetch('http://localhost:3000', {
+    await fetch('http://localhost:3001', {
       method: 'POST',
       body: JSON.stringify({testname, content}),
       headers: {'Content-Type':'application/json'},

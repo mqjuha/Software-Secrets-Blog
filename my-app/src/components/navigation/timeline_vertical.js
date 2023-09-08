@@ -23,13 +23,19 @@ const test_items = [
     { main_text: 'MAIN TEXT 4', secondary_text: null, dot_color: 'success', },
 ]
 
-function TimelineVertical( {timelines} ) {
+function TimelineVertical( {timeline} ) {
+
+    console.log("TIMELINEVERT:", timeline);
 
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md')); // 900px
 
-    const dots = timelines.dots;
-    //console.log(dots);
+    if (!timeline) {
+        return <div></div>;
+    }
+
+    const dots = timeline.dots;
+    console.log(dots);
 
 	return (
         <div className='timeline-ver-section'>

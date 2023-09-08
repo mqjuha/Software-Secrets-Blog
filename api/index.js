@@ -24,6 +24,7 @@ app.post('/', async (req,res) => {
 });
 
 app.get('/aboutus', async (req,res) => {
+    console.log('GET: AboutUs');
     res.json(
       await About.find({})
     );
