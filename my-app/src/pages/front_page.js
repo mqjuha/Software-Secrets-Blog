@@ -7,8 +7,8 @@ import References from '../components/references/references.js';
 import TableComparison from '../components/navigation/table_comparison.js';
 import TimelineHorizontal from '../components/navigation/timeline_horizontal.js';
 import TimelineVertical from '../components/navigation/timeline_vertical.js';
-
 import blog_banner from '../images/blog_banner.jpg'
+import { useEffect, useState } from "react";
 
 function FrontPage() {
 
@@ -16,6 +16,25 @@ function FrontPage() {
     document.getElementById('banner_image').src = blog_banner;
     document.getElementById("banner-header").innerHTML = '';
   }, 60);
+
+  const [timelinesVer, setTimelinesVer] = useState([]);
+  useEffect(() => {
+    let x = true;
+
+    if (x) {
+
+      fetch('http://localhost:3001/blog', {method: "GET"}).then(response => {
+          response.json().then( verLines => {
+            //console.log(verLines);
+            setTimelinesVer(verLines);
+          });
+      });
+    }
+    return () => {setTimelinesVer([])}
+
+  }, []);
+
+  console.log(timelinesVer);
 
   return (
     <div style={{
@@ -26,7 +45,7 @@ function FrontPage() {
       }}>
       <BlogNavbar></BlogNavbar>
       <p>Front Page of Blog</p>
-      <TimelineVertical></TimelineVertical>
+      <TimelineVertical timelines={timelinesVer}></TimelineVertical>
       <TimelineHorizontal></TimelineHorizontal>
       <TableComparison></TableComparison>
       <References></References>    

@@ -23,21 +23,24 @@ const test_items = [
     { main_text: 'MAIN TEXT 4', secondary_text: null, dot_color: 'success', },
 ]
 
-function TimelineVertical() {
+function TimelineVertical( {timelines} ) {
 
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md')); // 900px
+
+    const dots = timelines.dots;
+    //console.log(dots);
 
 	return (
         <div className='timeline-ver-section'>
             <Timeline position={ matches ? 'alternate' : 'left'}>
 
-                {test_items.map((item, i) => (
+                {dots.map((item, i) => (
 
                     <TimelineItem>
                         <TimelineOppositeContent display={ matches ? 'block' : 'none' }>{item.secondary_text}</TimelineOppositeContent>
                         <TimelineSeparator>
-                            <TimelineDot color={item.dot_color} />
+                            <TimelineDot color='success' />
                             { i !== test_items.length - 1 && <TimelineConnector />}
                         </TimelineSeparator>
                         <TimelineContent>

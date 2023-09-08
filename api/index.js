@@ -9,6 +9,7 @@ const { MongoClient } = require("mongodb");
 const Reference = require('./models/Reference');
 
 const About = require('./models/AboutUs');
+const TimelineVer = require('./models/TimelineVertical');
 
 const app = express();
 
@@ -23,9 +24,16 @@ app.post('/', async (req,res) => {
 });
 
 app.get('/aboutus', async (req,res) => {
-    console.log('pöö');
     res.json(
       await About.find({})
+    );
+});
+
+app.get('/blog', async (req,res) => {
+    console.log('GET: TimelineVer');
+    const {id} = req.params;
+    res.json(
+      await TimelineVer.findById('64fae3efca6c5bfd75758645')
     );
 });
 
