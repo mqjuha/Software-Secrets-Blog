@@ -10,6 +10,7 @@ const Reference = require('./models/Reference');
 
 const About = require('./models/AboutUs');
 const TimelineVer = require('./models/TimelineVertical');
+const TimelineHor = require('./models/TimelineHorizontal');
 
 const app = express();
 
@@ -30,11 +31,20 @@ app.get('/aboutus', async (req,res) => {
     );
 });
 
+/*
 app.get('/blog', async (req,res) => {
     console.log('GET: TimelineVer');
     const {id} = req.params;
     res.json(
       await TimelineVer.findById('64fae3efca6c5bfd75758645')
+    );
+});*/
+
+app.get('/blog', async (req,res) => {
+    console.log('GET: TimelineHor');
+    const {id} = req.params;
+    res.json(
+      await TimelineHor.findById('64fb22355481d8d8b64ef83d')
     );
 });
 

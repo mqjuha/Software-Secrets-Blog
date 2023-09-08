@@ -11,6 +11,7 @@ import blog_banner from '../images/blog_banner.jpg'
 import { useEffect, useState } from "react";
 
 let x = true;
+let y = true;
 
 function FrontPage() {
 
@@ -23,7 +24,7 @@ function FrontPage() {
 
   console.log("After timeout");
 
-  const [timelineVer, setTimelineVer] = useState(null);
+  /*const [timelineVer, setTimelineVer] = useState(null);
   useEffect(() => {
 
     console.log("X=", x);
@@ -39,13 +40,37 @@ function FrontPage() {
           });
       });
 
-      x = false;
+      //x = false;
 
       return () => {setTimelineVer(null)}
     }
   }, []);
 
-  console.log(timelineVer);
+  console.log(timelineVer); */
+
+  const [timelineHor, setTimelineHor] = useState(null);
+  useEffect(() => {
+
+    console.log("Y=", y);
+
+    if (y) {
+
+      fetch('http://localhost:3001/blog', {method: "GET"}).then
+      (response => {
+          console.log(response);
+          response.json().then( horLine => {
+            console.log(horLine);
+            setTimelineHor(horLine);
+          });
+      });
+
+      //y = false;
+
+      return () => {setTimelineHor(null)}
+    }
+  }, []);
+
+  console.log(timelineHor);
 
   return (
     <div style={{
@@ -55,9 +80,12 @@ function FrontPage() {
       justifyContent: 'center',
       }}>
       <p>Front Page of Blog</p>
-      <TimelineVertical timeline={timelineVer}></TimelineVertical> 
+      
+      <TimelineHorizontal timeline={timelineHor}></TimelineHorizontal>
     </div>
   );
 }
   
 export default FrontPage;
+
+//<TimelineVertical timeline={timelineVer}></TimelineVertical>
