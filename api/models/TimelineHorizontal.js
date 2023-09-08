@@ -2,11 +2,15 @@ const mongoose = require('mongoose');
 const {Schema, model} = mongoose;
 
 const TimelineHorSchema = new Schema({
-    link: {type: String, require: false},
-    text: {type: String, require: true},
-    active: {type: Boolean, require: true},
-});
+    title: {type: String, require: true},
+    dots: [{
+        link: { type: mongoose.Schema.Types.ObjectId, ref:'Reference', require: false},
+        text: {type: String, require: true},
+        active: {type: Boolean, require: false},
+    }]
+}, { collection: 'timeline_hor'});
 
-const TimelineHorModel =  model('TimelineHor', TimelineHorSchema);
 
-module.exports = TimelineHorModel;
+const TimelineHor =  model('TimelineHor', TimelineHorSchema);
+
+module.exports = TimelineHor;
