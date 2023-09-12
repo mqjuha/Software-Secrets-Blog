@@ -9,7 +9,6 @@
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    
     color: var(--background);
     align-items: center;
     text-align: center;
@@ -24,4 +23,8 @@
 .ref-text {
     margin-bottom: 10px;
     list-style-type: none;
+    flex-direction: row;
+}
+.href {
+    margin-left: 10px;
 }

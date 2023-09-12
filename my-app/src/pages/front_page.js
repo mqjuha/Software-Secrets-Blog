@@ -15,14 +15,10 @@ let y = true;
 
 function FrontPage() {
 
-  console.log("Front page!");
-
   setTimeout(() => {
     document.getElementById('banner_image').src = blog_banner;
     document.getElementById("banner-header").innerHTML = '';
   }, 60);
-
-  console.log("After timeout");
 
   /*const [timelineVer, setTimelineVer] = useState(null);
   useEffect(() => {
@@ -48,7 +44,7 @@ function FrontPage() {
 
   console.log(timelineVer); */
 
-  const [timelineHor, setTimelineHor] = useState(null);
+  /*const [timelineHor, setTimelineHor] = useState(null);
   useEffect(() => {
 
     console.log("Y=", y);
@@ -70,7 +66,7 @@ function FrontPage() {
     }
   }, []);
 
-  console.log(timelineHor);
+  console.log(timelineHor);*/
 
   return (
     <div style={{
@@ -81,7 +77,7 @@ function FrontPage() {
       }}>
       <p>Front Page of Blog</p>
       
-      <TimelineHorizontal timeline={timelineHor}></TimelineHorizontal>
+      <References></References>
     </div>
   );
 }
@@ -89,3 +85,4 @@ function FrontPage() {
 export default FrontPage;
 
 //<TimelineVertical timeline={timelineVer}></TimelineVertical>
+//<TimelineHorizontal timeline={timelineHor}></TimelineHorizontal>
