@@ -37,7 +37,7 @@ app.get('/blog', async (req,res) => {
     const {id} = req.params;
     res.json(
       await TimelineVer.findById('64fae3efca6c5bfd75758645')
-    );
+);
 });*/
 
 app.get('/blog', async (req,res) => {

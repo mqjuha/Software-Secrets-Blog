@@ -44,10 +44,10 @@ function Timeline( {timeline} ) {
                                     <Link 
                                         className='timeline-hor-link'
                                         to={item.link}
-                                        >{item.name}
+                                        >{item.text}
                                     </Link>
                                 ) : ( 
-                                    <div>{item.name}</div>)
+                                    <div>{item.text}</div>)
                                 }
                             </div>
                         </div>
