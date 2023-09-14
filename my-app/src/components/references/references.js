@@ -20,7 +20,7 @@ const test_data = [
         pages: 'Pages',
         series: 'Series',
         access_date: new Date(2023, 10, 10),
-        url: 'url',
+        url: 'pööööööööööööööööööööööööööööööö',
     },
     {
         authors: null,
@@ -33,11 +33,124 @@ const test_data = [
         }],
         pages: 'Pages',
         series: 'Series',
-        access_date: new Date(2023, 10, 10),
+        access_date: null,
         url: null,
     }
 ]
 
+
+function CreateList (props) {
+
+    const ref = props.reference;
+    const string_list = [];
+    const link = [];
+
+    console.log(ref);
+
+    Object.entries(ref).map(([key, value]) => {
+        console.log(key, value);
+
+        if ( value === null ) {
+            return;
+        }
+        else if ( value instanceof Date ) {
+            const date = value.toLocaleDateString();
+
+            if ( key === 'access_date') {
+                string_list.push("Available (" + date +"): " );
+            }
+            else {
+                string_list.push(date + ". ");
+            }
+
+        }
+        else if ( Array.isArray(value) ) {
+            value.map((source) => (
+                Object.entries(source).map(([key, value]) => (
+                     string_list.push(value + ". ")
+                )
+                )
+         ))
+        }
+        else if ( key === 'url' ) {
+            link.push(value);
+        }
+        else {
+            string_list.push(value + ". ");
+        }
+    });
+
+    return (
+        <div className='ref-text'>
+            <div>{string_list}</div>
+            <a className='href' href={link}>{link}</a>
+        </div>
+    )
+}
+
+function RefList(props) {
+    const data = props.database;
+
+    return (
+        <ul className='ul'>
+            {
+                data.map((ref) => (
+                    <li className='li'>
+                        <CreateList reference={ref}></CreateList>
+                    </li>
+                ))
+            }
+        </ul>
+    );
+};
+
+export default function Endbar () {
+
+    return (
+        <Fragment>
+            <div className='ref-section'>
+                <h2 className='ref-header'>References</h2>
+                <RefList database={test_data}></RefList>
+            </div>
+        </Fragment>
+    );
+}
+
+
+
+/*
+                            {data.authors}. ({data.year.toLocaleDateString()}). {data.title}. {data.pages}. {data.series}.
+                        { data.url !== null ?
+                        (
+                            <div>
+                                Available ({data.access_date.toLocaleDateString()}): 
+                                <a className='href' href={data.url}>{data.url}</a>
+                            </div>
+                        ) : (
+                            <div></div>
+                        )
+                        }*/
+
+/*
+            { pair[0] === 'access_date' ?
+            (
+                <div>
+                    Available ({pair[1].toLocaleDateString()}): 
+                    
+                </div>
+            ) : (
+                <div>{pair[1]}.</div>
+            )
+            }*/
+
+/*
+                        {
+                            Object.entries(ref).map(([key, value]) => (
+                                <AddPoint pair={[key, value]}></AddPoint>
+                            )
+                            )
+                        }*/
+/*
 function AddPoint (props) {
 
     const pair = props.pair;
@@ -87,63 +200,4 @@ function AddPoint (props) {
     )
 
 };
-
-function RefList(props) {
-    const data = props.database;
-
-    console.log(data);
-
-    return (
-        <ul>
-            {
-                data.map((ref) => (
-                    <li className='ref-text'>
-                        {
-                            Object.entries(ref).map(([key, value]) => (
-                                <AddPoint pair={[key, value]}></AddPoint>
-                            )
-                            )
-                        }
-                    </li>
-                ))
-            }
-        </ul>
-    );
-};
-
-export default function Endbar () {
-
-    return (
-        <Fragment>
-            <div className='ref-section'>
-                <h2 className='ref-header'>References</h2>
-                <RefList database={test_data}></RefList>
-            </div>
-        </Fragment>
-    );
-}
-
-/*
-                            {data.authors}. ({data.year.toLocaleDateString()}). {data.title}. {data.pages}. {data.series}.
-                        { data.url !== null ?
-                        (
-                            <div>
-                                Available ({data.access_date.toLocaleDateString()}): 
-                                <a className='href' href={data.url}>{data.url}</a>
-                            </div>
-                        ) : (
-                            <div></div>
-                        )
-                        }*/
-
-/*
-            { pair[0] === 'access_date' ?
-            (
-                <div>
-                    Available ({pair[1].toLocaleDateString()}): 
-                    
-                </div>
-            ) : (
-                <div>{pair[1]}.</div>
-            )
-            }*/
+*/
