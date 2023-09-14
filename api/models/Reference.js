@@ -18,8 +18,8 @@ const ReferenceSchema = new Schema({
     }],
     pages: {type: String, require: false},
     series: {type: String, require: false},
-    url: {type: String, require: false},
     access_date: {type: Date, require: false},
+    url: {type: String, require: false},
 }, { collection: 'references'});
 
 const Reference =  model('Reference', ReferenceSchema);

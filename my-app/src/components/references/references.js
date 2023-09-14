@@ -1,4 +1,5 @@
 import {useRef, Fragment} from 'react';
+import {Link} from 'react-router-dom';
 
 import './references.css'
 
@@ -18,8 +19,8 @@ const test_data = [
         }],
         pages: 'Pages',
         series: 'Series',
-        url: 'url',
         access_date: new Date(2023, 10, 10),
+        url: 'url',
     },
     {
         authors: null,
@@ -32,33 +33,56 @@ const test_data = [
         }],
         pages: 'Pages',
         series: 'Series',
-        url: null,
         access_date: new Date(2023, 10, 10),
+        url: null,
     }
 ]
-
 
 function AddPoint (props) {
 
     const pair = props.pair;
-    console.log(pair[1]);
-
-    /*for (const [key, value] of Object.entries(ref)) {
-        console.log(`${key} ${value}`);
-    }*/
 
     return (
         <div>
-            { pair[0] === 'accessdate' ?
-            (
-                <div>
-                    Available ({pair[1].toLocaleDateString()}): 
+
+            {(() => {
+                if ( pair[1] === null ) {
+                return (
+                    <div></div>
+                )
+                } else if ( pair[0] === 'year' ) {
+                return (
+                    <div>{pair[1].toLocaleDateString()}</div>
+                )
+                } else if ( pair[0] === 'access_date' ) {
+                return (
+                    <div>Available ({pair[1].toLocaleDateString()}):</div>
+                )
+                } else if ( pair[0] === 'url' ) {
+                return (
                     <a className='href' href={pair[1]}>{pair[1]}</a>
-                </div>
-            ) : (
-                <div></div>
-            )
-            }
+                )
+                } else if ( pair[0] === 'source' ) {
+                    console.log(pair[1]);
+                return (
+                    <div> 
+                        {
+                            pair[1].map((source) => (
+                                   Object.entries(source).map(([key, value]) => (
+                                        <div>{value}</div>
+                                   )
+                                   )
+                            ))
+                        }
+                    </div>
+                )
+                } else {
+                return (
+                    <div>{pair[1]}.</div>
+                )
+                }
+            })()}
+
         </div>
     )
 
@@ -111,3 +135,15 @@ export default function Endbar () {
                             <div></div>
                         )
                         }*/
+
+/*
+            { pair[0] === 'access_date' ?
+            (
+                <div>
+                    Available ({pair[1].toLocaleDateString()}): 
+                    
+                </div>
+            ) : (
+                <div>{pair[1]}.</div>
+            )
+            }*/
