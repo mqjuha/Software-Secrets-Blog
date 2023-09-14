@@ -38,6 +38,8 @@ const test_data = [
     }
 ]
 
+const test = { moi: 'hei'};
+
 
 function CreateList (props) {
 
@@ -51,6 +53,9 @@ function CreateList (props) {
         console.log(key, value);
 
         if ( value === null ) {
+            return;
+        }
+        else if ( key === '_id') {
             return;
         }
         else if ( value instanceof Date ) {
@@ -93,24 +98,33 @@ function RefList(props) {
 
     return (
         <ul className='ul'>
-            {
-                data.map((ref) => (
+            { Array.isArray(data) ?
+            (
+                data.map((data) => (
                     <li className='li'>
-                        <CreateList reference={ref}></CreateList>
+                        <CreateList reference={data}></CreateList>
                     </li>
-                ))
+                ))  
+            ) : (                
+                <li className='li'>
+                    <CreateList reference={data}></CreateList>
+                </li>
+            )
             }
+
         </ul>
     );
 };
 
-export default function Endbar () {
+export default function ReferencesBox ( {refs} ) {
+
+    console.log(refs);
 
     return (
         <Fragment>
             <div className='ref-section'>
                 <h2 className='ref-header'>References</h2>
-                <RefList database={test_data}></RefList>
+                <RefList database={refs}></RefList>
             </div>
         </Fragment>
     );

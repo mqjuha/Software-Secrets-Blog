@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 let x = true;
 let y = true;
+let z = true;
 
 function FrontPage() {
 
@@ -68,6 +69,30 @@ function FrontPage() {
 
   console.log(timelineHor);*/
 
+  const [references, setReferences] = useState([]);
+  useEffect(() => {
+
+    console.log("Z=", z);
+
+    if (z) {
+
+      fetch('http://localhost:3001/blog', {method: "GET"}).then
+      (response => {
+          console.log(response);
+          response.json().then( refs => {
+            console.log("Refs:", refs);
+            setReferences(refs);
+          });
+      });
+
+      //z = false;
+
+      return () => {setReferences([])}
+    }
+  }, []);
+
+  console.log(references);
+
   return (
     <div style={{
       display: 'flex',
@@ -77,7 +102,7 @@ function FrontPage() {
       }}>
       <p>Front Page of Blog</p>
       
-      <References></References>
+      <References refs={references}></References>
     </div>
   );
 }
