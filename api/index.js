@@ -54,7 +54,7 @@ app.get('/blog', async (req,res) => {
     console.log('GET: Reference');
     const {id} = req.params;
     res.json(
-      await Ref.findById('6503124a7433dce89ea716a2')
+      await Ref.findById('650311ed30ec1313bd902acb')
     );
 });
 

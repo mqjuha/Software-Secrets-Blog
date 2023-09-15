@@ -6,6 +6,7 @@ import './references.css'
 //const test_data = ["M. Erikson, What is a Product Manager?, Medium, 18.2.2016. Available: https://medium.com/@bfgmartin/what-is-a-product-manager-ce0efdcf114c", "Source 2", "P. Rodriguez, C. Urquhart and E. Mendes, A Theory of Value-Based Feature Se-lection in Software Engineering, IEEE Transaction on software engineering, 2022, vol. 48, no. 2."];
 // date(year, mont, day)
 
+/*
 const test_data = [
     {
         authors: 'Authors',
@@ -36,9 +37,9 @@ const test_data = [
         access_date: null,
         url: null,
     }
-]
+]*/
 
-const test = { moi: 'hei'};
+//const test = { moi: 'hei'};
 
 
 function CreateList (props) {
@@ -47,35 +48,45 @@ function CreateList (props) {
     const string_list = [];
     const link = [];
 
-    console.log(ref);
-
     Object.entries(ref).map(([key, value]) => {
-        console.log(key, value);
+
+        console.log(typeof value);
 
         if ( value === null ) {
             return;
         }
-        else if ( key === '_id') {
+        else if ( key === '_id' ) {
             return;
         }
-        else if ( value instanceof Date ) {
-            const date = value.toLocaleDateString();
-
-            if ( key === 'access_date') {
-                string_list.push("Available (" + date +"): " );
-            }
-            else {
-                string_list.push(date + ". ");
-            }
-
+        else if ( key === '__v' ) {
+            return;
         }
-        else if ( Array.isArray(value) ) {
-            value.map((source) => (
-                Object.entries(source).map(([key, value]) => (
-                     string_list.push(value + ". ")
+        else if ( key === 'access_date' ) {
+            const date = new Date(value);
+            string_list.push("Available (" + date.toLocaleDateString() +"): " );
+        }
+        else if ( key === 'year' ) {
+            const date = new Date(value);
+            string_list.push("(" + date.toLocaleDateString() + "). " );
+        }
+        else if ( key === 'source' ) {
+
+            value.map((source) => {
+                Object.entries(source).map(([s_key, s_value]) => {
+                    if ( s_value === null ) {
+                        return;
+                    }
+                    else if ( s_key === '_id' ) {
+                        return;
+                    }
+                    else {
+                        string_list.push(s_value + ". ")
+                    }
+                }
                 )
-                )
-         ))
+            }
+            )
+
         }
         else if ( key === 'url' ) {
             link.push(value);
