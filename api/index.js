@@ -7,6 +7,8 @@ const AboutUs = require('./models/AboutUs.js');
 const { MongoClient } = require("mongodb");
 
 const Reference = require('./models/Reference');
+const Post = require('./models/Post_item');
+const fs = require('fs');
 
 const About = require('./models/AboutUs');
 const TimelineVer = require('./models/TimelineVertical');
@@ -58,8 +60,7 @@ app.get('/blog', async (req,res) => {
     res.json(
       await Ref.findById('650311ed30ec1313bd902acb')
     );
-}); */
-
+}); 
 app.get('/blog', async (req,res) => {
     console.log('GET: Table');
     const {id} = req.params;
@@ -67,8 +68,7 @@ app.get('/blog', async (req,res) => {
       await TableComponent.findById('6509c21d014df10c9cf82b4b')
     );
 });
-
-app.listen(3001);
+*/
 
 /*
     const postDoc =  await Post.create({
@@ -92,7 +92,62 @@ app.listen(3001);
     const mongodb = context.services.get("mongodb-atlas");
     const itemsCollection = mongodb.db("secrets").collection("about_us");
 
-    const person = 
+
+app.post('/', async (req,res) => {
+    const postDoc =  await Post.create({
+        category: "business",
+        title: "Software Business Models",
+        date: "2023-09-10",
+        cover: "images/img1",
+        keywords: ["business model", "revenue streams"],
+        abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
+        nav: {
+            nav_type: "Comparison",
+            content: "567839049873623er"
+        },
+        content: ["1", "2", "3", "4", "5"],
+        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
+        references: ["64d4f852045c352f994e0d14"]
+    })
+    res.json(postDoc);
+});
+*/
+
+app.get('/blog', async (req,res) => {
+    res.json(
+      await Post.find()
+    );
+});
+
+app.get('/blog/:id', async (req, res) => {
+    const {id} = req.params;
+    res.json(
+        await Post.findById(id)
+    );
+});
+
+/*
+app.post('/', async (req,res) => {
+    const {testname, content} = req.body;
+    const referenceDoc =  await Reference.create({
+        author: "author",
+        title: "content"
+    })
+    res.json(referenceDoc);
+});
+
+
+
+app.get('/post/:id', async (req, res) => {
+    const {id} = req.params;
+    const postDoc = await Post.findById(id);
+    res.json(postDoc);
+});
+*/
+
+app.listen(3001);
+
+/*    const person = 
         { 
             name: 'First Last',
             job: 'Student',
