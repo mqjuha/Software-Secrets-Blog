@@ -1,7 +1,8 @@
 .timeline-section {
-	width: 50%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	margin-left: 20px;
 	margin-right: 20px;
 	margin-top: 50px;
