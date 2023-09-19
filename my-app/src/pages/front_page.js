@@ -13,7 +13,6 @@ import TableComparison from '../components/navigation/table_comparison.js';
 import TimelineHorizontal from '../components/navigation/timeline_horizontal.js';
 import TimelineVertical from '../components/navigation/timeline_vertical.js';
 import blog_banner from '../images/blog_banner.jpg'
-import { useEffect, useState } from "react";
 
 let x = true;
 let y = true;
