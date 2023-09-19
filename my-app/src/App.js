@@ -32,7 +32,7 @@ import PostPage from './pages/blog/post_page';
 
 function BaseStructure() {
   return (
-    <div>
+    <div className='base-layout'>
       <Navbar className='top_bar'/>
       <Outlet/>
       <Endbar/>

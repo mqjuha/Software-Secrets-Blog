@@ -6,20 +6,16 @@ const PostSchema = new Schema({
     title: String,
     date: Date,
     cover: String,
-    keywords: [{
-        word: String
-    }],
+    keywords: [String],
     abstract: String,
     nav: {
         nav_type: String,
         element: Schema.ObjectId
     },
-    content: String,
+    content: [String],
     summary: String,
-    references: [{
-        ref: Schema.ObjectId
-    }]
-});
+    references: [Schema.ObjectId]
+}, { collection: 'posts' });
 
 const PostModel =  model('Post', PostSchema);
 

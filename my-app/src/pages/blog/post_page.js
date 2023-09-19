@@ -9,31 +9,30 @@ import Keyword from "../../components/keyword/keyword";
 export default function PostPage(){
     const [postInfo, setPostInfo] = useState([]);
     const {id} = useParams();
-    console.log("post page");
+    console.log(postInfo);
 
     useEffect(() => {
+        
         fetch(`http://localhost:3001/blog/${id}`)
         .then(response => {
             console.log(response);
             response.json().then(info => {
                 setPostInfo(info);
-                console.log("postInfo");
             });
         });
     }, []);
 
-    if (!postInfo) return '';
+    if (postInfo.length == 0) return '';
 
     return (
         <div className="article">
             <div className="intro-element">
                 <Typography variant="h3">{postInfo.title}</Typography>
-                <Typography>12.4.2023</Typography>
+                <Typography>{postInfo.date}</Typography>
                 <div className="keywords">
-                    <Keyword word="AVAINSANA"></Keyword>
-                    <Keyword word="AVAINSANA"></Keyword>
-                    <Keyword word="AVAINSANA"></Keyword>
-                    <Keyword word="AVAINSANA"></Keyword>
+                    {postInfo.keywords.map( word => (
+                        <Keyword></Keyword>
+                    ))}
                 </div>
                 <Typography>{postInfo.abstract}</Typography>
             </div>
@@ -41,7 +40,9 @@ export default function PostPage(){
                 
             </div>
             <div className="content-element">
-                
+                {postInfo.content.map( chapter => (
+                    <Typography>{chapter}</Typography>
+                ))}
             </div>
             <div className="summary-element">
                 <Typography variant="h4">Summary</Typography>
