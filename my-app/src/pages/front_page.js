@@ -8,6 +8,13 @@ import Postlist from '../components/postList/postList';
 
 import './blog_page.css'
 
+import References from '../components/references/references.js';
+import TableComparison from '../components/navigation/table_comparison.js';
+import TimelineHorizontal from '../components/navigation/timeline_horizontal.js';
+import TimelineVertical from '../components/navigation/timeline_vertical.js';
+
+import blog_banner from '../images/blog_banner.jpg'
+
 function FrontPage() {
 
   console.log("front page");
@@ -30,9 +37,20 @@ function FrontPage() {
 
   }, []);
 
+  setTimeout(() => {
+    document.getElementById('banner_image').src = blog_banner;
+    document.getElementById("banner-header").innerHTML = '';
+  }, 60);
+
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      }}>
       <BlogNavbar></BlogNavbar>
+
       <p>Front Page of Blog</p> 
       <div className="list">
         {posts.length > 0 && posts.map( post => (
@@ -40,7 +58,6 @@ function FrontPage() {
         ))}
 
       </div>
-            
     </div>
   );
 }
