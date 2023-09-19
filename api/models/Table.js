@@ -6,7 +6,7 @@ const TableSchema = new Schema({
     table: {
         header_row: [{type: String, require: true}],
         content: [{
-            navigation: {type: String, require: false},
+            navigation: { type: mongoose.Schema.Types.ObjectId, ref:'Reference', require: false},
             items: [{type: String, require: true}],
         }]  
     }
