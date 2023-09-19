@@ -9,13 +9,11 @@ import Keyword from "../../components/keyword/keyword";
 export default function PostPage(){
     const [postInfo, setPostInfo] = useState([]);
     const {id} = useParams();
-    console.log(postInfo);
 
     useEffect(() => {
         
         fetch(`http://localhost:3001/blog/${id}`)
         .then(response => {
-            console.log(response);
             response.json().then(info => {
                 setPostInfo(info);
             });
@@ -48,7 +46,6 @@ export default function PostPage(){
                 <Typography variant="h4">Summary</Typography>
                 <Typography>{postInfo.summary}</Typography>
             </div>
-            
         </div>
     )
 }

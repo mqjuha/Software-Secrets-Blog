@@ -35,11 +35,11 @@ function FrontPage() {
       <BlogNavbar></BlogNavbar>
       <p>Front Page of Blog</p> 
       <div className="list">
-            {posts.length > 0 && posts.map( post => (
-                <Post {...post} />
-            ))}
+        {posts.length > 0 && posts.map( post => (
+            <Post {...post} />
+        ))}
 
-        </div>
+      </div>
             
     </div>
   );
