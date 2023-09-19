@@ -28,10 +28,10 @@ export default function PostPage(){
         <div className="article">
             <div className="intro-element">
                 <Typography variant="h3">{postInfo.title}</Typography>
-                <Typography>{postInfo.date}</Typography>
+                <Typography>{postInfo.date.substr(0,10)}</Typography>
                 <div className="keywords">
                     {postInfo.keywords.map( word => (
-                        <Keyword></Keyword>
+                        <Keyword word={word}/>
                     ))}
                 </div>
                 <Typography>{postInfo.abstract}</Typography>
