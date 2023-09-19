@@ -12,6 +12,7 @@ const About = require('./models/AboutUs');
 const TimelineVer = require('./models/TimelineVertical');
 const TimelineHor = require('./models/TimelineHorizontal');
 const Ref = require('./models/Reference.js');
+const TableComponent = require('./models/Table.js')
 
 const app = express();
 
@@ -50,11 +51,20 @@ app.get('/blog', async (req,res) => {
     );
 }); */
 
+/*
 app.get('/blog', async (req,res) => {
     console.log('GET: Reference');
     const {id} = req.params;
     res.json(
       await Ref.findById('650311ed30ec1313bd902acb')
+    );
+}); */
+
+app.get('/blog', async (req,res) => {
+    console.log('GET: Table');
+    const {id} = req.params;
+    res.json(
+      await TableComponent.findById('6509c21d014df10c9cf82b4b')
     );
 });
 

@@ -16,19 +16,19 @@ mongoose.connect('mongodb+srv://SSB-user:g11zWMpLH6MZnuiD@cluster0.gf98q4b.mongo
             header_row: ["Header", "Header1", "Header2", "Header3", "Header4"],
             content: [{
                 navigation: 'link',
-                items: ["header1", "row1", "row1"],
+                items: ["header1", "row1", "row1", "row1", "row1", "row1"],
             },
             {
-                items: ["header2", "row2", "row2"],
+                items: ["header2", "row2", "row2", "row2", "row2", "row2"],
             },
             {
-                items: ["header3", "row3", "row3"],
+                items: ["header3", "row3", "row3", "row3", "row3", "row3"],
             },
             {
-                items: ["header4", "row4", "row4"],
+                items: ["header4", "row4", "row4", "row4", "row4", "row4"],
             },
             {
-                items: ["header5", "row5", "row5"],
+                items: ["header5", "row5", "row5", "row5", "row5", "row5"],
             }
             ] 
         }

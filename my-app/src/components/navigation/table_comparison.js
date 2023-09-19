@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
     { header: "header1", feature1: 'column 3.1', feature2: "column 3.2" },
 ]*/
 
+/*
 const data = {
       header_row: ["Header", "Header1", "Header2"],
       content: [{
@@ -22,9 +23,9 @@ const data = {
           items: ["header3", "row3", "row3"],
       }  
       ]
-  } 
+  } */
 
-function Table() {
+function Table( {whole_table_data} ) {
 
     //console.log(data.length); //2
 
@@ -34,6 +35,10 @@ function Table() {
 
     //console.log(Object.keys(test_data[0])[0]); //header
 
+    const only_table = whole_table_data.table;
+
+    console.log(whole_table_data);
+    console.log("Only_table", only_table);
 
     const getTableHeaders = ( headers ) => {
 
@@ -113,8 +118,8 @@ function Table() {
     return (
         <div className='table-section'>
             <table>
-                {getTableHeaders(data.header_row)}
-                {getTableBody(data.content)}
+                {getTableHeaders(only_table.header_row)}
+                {getTableBody(only_table.content)}
             </table>
         </div>
 

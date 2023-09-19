@@ -94,6 +94,28 @@ function FrontPage() {
 
   console.log(references);*/
 
+  const [table, setTableContent] = useState([]);
+  useEffect(() => {
+  
+    fetch('http://localhost:3001/blog', {method: "GET"}).then
+    (response => {
+        console.log(response);
+        response.json().then( content => {
+          console.log("Table:", content);
+          setTableContent(content);
+        });
+    });
+    
+    return () => {setTableContent([])}
+
+  }, []);
+
+  console.log(table);
+
+  if ( table.length === 0 ) {
+    return ""
+  }
+
   return (
     <div style={{
       display: 'flex',
@@ -102,7 +124,7 @@ function FrontPage() {
       justifyContent: 'center',
       }}>
       <p>Front Page of Blog</p>
-      <TableComparison></TableComparison>
+      <TableComparison whole_table_data={table}></TableComparison>
     </div>
   );
 }
