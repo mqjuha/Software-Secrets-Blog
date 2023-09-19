@@ -51,7 +51,7 @@ function Table( {whole_table_data} ) {
               headers.map((item) => {
 
                 if ( item !== 'navigation' ) {
-                  return <th className='th-row'>{item}</th>
+                  return <th key={item} className='th-row'>{item}</th>
                 }
 
               })
@@ -85,7 +85,7 @@ function Table( {whole_table_data} ) {
                   if ( "navigation" in row ) {
 
                     row_list.push(
-                      <th className='th-column'>
+                      <th key={row_items[0]} className='th-column'>
                           <Link 
                             className='th-link'
                             to={row.navigation}
@@ -95,7 +95,7 @@ function Table( {whole_table_data} ) {
 
                   }
                   else {
-                    row_list.push( <th className='th-column'>{row_items[0]}</th> )
+                    row_list.push( <th key={row_items[0]} className='th-column'>{row_items[0]}</th> )
                   }
                 }
 
