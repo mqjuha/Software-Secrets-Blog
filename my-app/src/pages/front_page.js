@@ -69,6 +69,7 @@ function FrontPage() {
 
   console.log(timelineHor);*/
 
+  /*
   const [references, setReferences] = useState([]);
   useEffect(() => {
 
@@ -91,7 +92,7 @@ function FrontPage() {
     }
   }, []);
 
-  console.log(references);
+  console.log(references);*/
 
   return (
     <div style={{
@@ -101,8 +102,7 @@ function FrontPage() {
       justifyContent: 'center',
       }}>
       <p>Front Page of Blog</p>
-      
-      <References refs={references}></References>
+      <TableComparison></TableComparison>
     </div>
   );
 }
@@ -111,3 +111,4 @@ export default FrontPage;
 
 //<TimelineVertical timeline={timelineVer}></TimelineVertical>
 //<TimelineHorizontal timeline={timelineHor}></TimelineHorizontal>
+//<References refs={references}></References>
