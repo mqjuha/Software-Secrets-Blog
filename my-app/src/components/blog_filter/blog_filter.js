@@ -44,7 +44,7 @@ const sortOptions = [
 function Search_field () {
     return (
       <Fragment>
-        <div className="section">
+        <div className="filter-section">
           <div className="filters">
             <Autocomplete
               className="filter"
