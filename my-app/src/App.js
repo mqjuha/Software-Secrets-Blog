@@ -30,16 +30,21 @@ import Technology from './pages/blog/technology';
 import Ux from './pages/blog/ux';
 import PostPage from './pages/blog/post_page';
 
+import banner from './images/home_page_banner.jpg'
+
 function BaseStructure() {
   return (
     <div className='base-layout'>
+      <div className='banner'>
+        <img id='banner_image' src={banner}/>
+        <h1 id='banner-header'></h1>
+      </div>
       <Navbar className='top_bar'/>
       <Outlet/>
       <Endbar/>
     </div>
   );
 }
-
 
 function App() {
 
