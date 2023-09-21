@@ -16,21 +16,41 @@ mongoose.connect('mongodb+srv://SSB-user:g11zWMpLH6MZnuiD@cluster0.gf98q4b.mongo
 
 app.post('/', async (req,res) => {
     const postDoc =  await Post.create({
-        category: "business",
-        title: "Software Business Models",
-        date: "2023-09-10",
+        category: "ux",
+        title: "Experience-driven Design",
+        date: "2023-06-10",
         cover: "images/img1",
-        keywords: ["business model", "revenue streams"],
-        abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
+        keywords: ["experience design", "experience goals"],
+        abstract: "ABSTRACT",
         nav: {
             nav_type: "Comparison",
             content: "567839049873623er"
         },
         content: ["1", "2", "3", "4", "5"],
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.",
+        summary: "SUMMARY",
         references: ["64d4f852045c352f994e0d14"]
     })
     res.json(postDoc);
+});
+app.get('/blog/technology', async (req, res) => {
+    console.log('GET TECH POSTS')
+    res.json(
+        await Post.find({category: "tech"}).exec()
+    );
+});
+
+app.get('/blog/business', async (req, res) => {
+    console.log('GET BUSINESS POSTS')
+    res.json(
+        await Post.find({category: "business"}).exec()
+    );
+});
+
+app.get('/blog/ux', async (req, res) => {
+    console.log('GET UX POSTS')
+    res.json(
+        await Post.find({category: "ux"}).exec()
+    );
 });
 
 app.get('/blog', async (req,res) => {
@@ -45,6 +65,8 @@ app.get('/blog/:id', async (req, res) => {
         await Post.findById(id)
     );
 });
+
+
 
 /*
 app.post('/', async (req,res) => {

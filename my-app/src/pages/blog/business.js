@@ -9,14 +9,15 @@ import './blog_layout.css'
 
 export default function Business() {
 
-    const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     let x = true;
 
     if (x) {
 
     console.log('fetch business');
-      fetch('http://localhost:3001/blog', {method: "GET"}).then(response => {
+      fetch('http://localhost:3001/blog/business', {method: "GET"}).then(response => {
         console.log(response);
           response.json().then(postArr => {
               setPosts(postArr);
@@ -27,17 +28,20 @@ export default function Business() {
 
   }, []);
 
+  if ( posts.length === 0 ){
+    return '';
+  }
+
     return (
         <div className="top-section">
             <BlogNavbar></BlogNavbar>
             <Blogfilter></Blogfilter>
-            <p>BUSINESS</p>
             <div className="list">
                 {posts.length > 0 && posts.map( post => (
                     <Post {...post} />
             ))}
 
-      </div>
+            </div>
         </div>
 
     );
