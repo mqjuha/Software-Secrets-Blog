@@ -13,22 +13,20 @@ mongoose.connect('mongodb+srv://SSB-user:g11zWMpLH6MZnuiD@cluster0.gf98q4b.mongo
     var table = new Table({
         title: "Table2",
         table: {
-            header_row: ["Header", "Header1", "Header2", "Header3", "Header4"],
+            header_row: ["Level", "Tester", "Project Phase"],
             content: [{
-                navigation: 'link',
-                items: ["header1", "row1", "row1", "row1", "row1", "row1"],
+                navigation: '650c7ad3bf3dec6edb871381',
+                items: ["Unit", "Developer", "Implementation"],
             },
             {
-                items: ["header2", "row2", "row2", "row2", "row2", "row2"],
+                items: ["Integration", "Developer", "Implementation"],
             },
             {
-                items: ["header3", "row3", "row3", "row3", "row3", "row3"],
+                link: '650c7ad6bf3dec6edb871383',
+                items: ["System", "Tester", "Final phase"],
             },
             {
-                items: ["header4", "row4", "row4", "row4", "row4", "row4"],
-            },
-            {
-                items: ["header5", "row5", "row5", "row5", "row5", "row5"],
+                items: ["Acceptance", "Customer", "Final phase"],
             }
             ] 
         }

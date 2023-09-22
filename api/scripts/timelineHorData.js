@@ -11,18 +11,21 @@ mongoose.connect('mongodb+srv://SSB-user:g11zWMpLH6MZnuiD@cluster0.gf98q4b.mongo
 .then(() => {
     console.log('connected');
     var table = new TimelineHor({
-        title: 'TimelineHor2',
+        title: 'Experience-driven Design',
         dots: [{
-            text: 'Dot1',
+            link: '65099b6d1276d0845f8690a4',
+            text: 'User study',
             active: true,
         }, {
-            text: 'Dot2',
+            link: '65099c051276d0845f8690aa',
+            text: 'Experience goals',
             active: true,
         }, {
-            text: 'Dot3',
-            active: true,
+            text: 'Implementation',
+            active: false,
         }, {
-            text: 'Dot4',
+            link: '65099c041276d0845f8690a8',
+            text: 'Usability tests',
             active: false,
         }]
     });

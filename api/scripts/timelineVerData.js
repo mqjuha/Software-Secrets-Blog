@@ -11,19 +11,26 @@ mongoose.connect('mongodb+srv://SSB-user:g11zWMpLH6MZnuiD@cluster0.gf98q4b.mongo
 .then(() => {
     console.log('connected');
     var table = new TimelineVer({
-        title: 'TimelineVer2',
+        title: 'Software Development Process',
         dots: [{
-            main_text: 'Main Text2',
-            secondary_text: 'Secondary text2',
+            link: '6509a7fd1276d0845f8690b5',
+            main_text: 'Requirement analysis',
+            secondary_text: 'First step',
         }, {
-            main_text: 'Main Text',
-            secondary_text: 'Secondary text',
+            main_text: 'Planning',
         }, {
-            main_text: 'Main2',
-            secondary_text: 'Secondary2',
+            link: '6509a7fe1276d0845f8690b7',
+            main_text: 'Architectural Design',
         }, {
-            main_text: 'Main',
-            secondary_text: 'Secondary',
+            main_text: 'Development',
+        }, {
+            link: '6509a7ff1276d0845f8690b9',
+            main_text: 'Testing',
+        }, {
+            main_text: 'Deployment',
+        }, {
+            main_text: 'Maintenance',
+            secondary_text: 'Last step',
         }]
     });
 
