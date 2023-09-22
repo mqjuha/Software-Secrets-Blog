@@ -14,9 +14,10 @@ import TimelineHorizontal from '../components/navigation/timeline_horizontal.js'
 import TimelineVertical from '../components/navigation/timeline_vertical.js';
 import blog_banner from '../images/blog_banner.jpg'
 
+/*
 let x = true;
 let y = true;
-let z = true;
+let z = true;*/
 
 function FrontPage() {
 

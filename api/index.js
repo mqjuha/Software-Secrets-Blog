@@ -120,11 +120,49 @@ app.get('/blog', async (req,res) => {
 });
 
 app.get('/blog/:id', async (req, res) => {
+
+    console.log("GET: Article")
     const {id} = req.params;
+
     res.json(
         await Post.findById(id)
     );
+    
+    // .populate(nav.element)
+/*
+    TimelineHor.findById(nav.id)
+    .then(timelineHorFound => {
+        if (timelineHorFound) { return res.json(timelineHorFound); }
+    })*/
+
 });
+
+app.get('/timelineHor/:id', async (req, res) => {
+    console.log("GET: TimelineHor")
+    const {id} = req.params;
+
+    res.json(
+        await TimelineHor.findById(id)
+    );
+});
+
+app.get('/timelineVer/:id', async (req, res) => {
+    console.log("GET: TimelineVer")
+    const {id} = req.params;
+
+    res.json(
+        await TimelineVer.findById(id)
+    );
+});
+
+app.get('/tableComponent/:id', async (req,res) => {
+    console.log('GET: Table');
+    const {id} = req.params;
+    res.json(
+      await TableComponent.findById('6509c21d014df10c9cf82b4b')
+    );
+});
+
 
 /*
 app.post('/', async (req,res) => {
