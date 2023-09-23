@@ -100,7 +100,7 @@ const customIcons = {
       <div className="section">
         {
           showForm?<form className="question-column" ref={form}>
-              <h2>Give us useful feedback to improve the website! :)</h2>
+              <h2 className='main-header'>Give us useful feedback to improve the website! :)</h2>
               <div className='question-column'>
                 <RadioGroupRating id='question1' question='What do you think about the blog?' number={0}></RadioGroupRating>         
                 <RadioGroupRating id='question2' question='0' number={1}></RadioGroupRating>               
