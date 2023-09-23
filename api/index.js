@@ -159,7 +159,15 @@ app.get('/tableComponent/:id', async (req,res) => {
     console.log('GET: Table');
     const {id} = req.params;
     res.json(
-      await TableComponent.findById('6509c21d014df10c9cf82b4b')
+      await TableComponent.findById(id)
+    );
+});
+
+app.get('/reference/:id', async (req,res) => {
+    console.log('GET: Reference');
+    const {id} = req.params;
+    res.json(
+      await Ref.findById(id)
     );
 });
 

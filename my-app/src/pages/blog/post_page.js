@@ -12,8 +12,13 @@ import TimelineHorizontal from '../../components/navigation/timeline_horizontal.
 import TimelineVertical from '../../components/navigation/timeline_vertical.js';
 
 export default function PostPage(){
+
+    // Article
     const [postInfo, setPostInfo] = useState([]);
+    // Navigation component
     const [selectedNavComponent, setSelectedNavComponent] = useState(null);
+    // List of references
+    const [refs, setRefs] = useState([]);
 
     const {id} = useParams();
 
@@ -22,27 +27,47 @@ export default function PostPage(){
           .then(response => {
             response.json().then(info => {
               setPostInfo(info);
-              //setSelectedNavComponent(info.nav.element);
-      
+
               if (info.nav.nav_type === 'TimelineHor') {
-                // Haetaan TimelineHor-dokumentti dots-arvoineen
+                
                 fetch(`http://localhost:3001/timelineHor/${info.nav.element}`)
                   .then(response => response.json())
                   .then(timelineHor => {
                     setSelectedNavComponent(<TimelineHorizontal timeline={timelineHor} />);
                   })
-                  .catch(error => {
-                    console.error('Virhe haettaessa TimelineHor-dokumenttia:', error);
-                  });
               } else if (info.nav.nav_type === 'TimelineVer') {
-                setSelectedNavComponent(<TimelineVertical />);
+
+                fetch(`http://localhost:3001/timelineVer/${info.nav.element}`)
+                .then(response => response.json())
+                .then(timelineVer => {
+                  setSelectedNavComponent(<TimelineVertical timeline={timelineVer} />);
+                })
+              } else if (info.nav.nav_type === 'TableComparison') {
+
+                fetch(`http://localhost:3001/tableComponent/${info.nav.element}`)
+                .then(response => response.json())
+                .then(tableComp => {
+                  setSelectedNavComponent(<TableComparison whole_table_data={tableComp} />);
+                })
               }
+
+              if (info.references.length !== 0) {
+                const refPromises = info.references.map(ref_id => {
+                  return fetch(`http://localhost:3001/reference/${ref_id}`)
+                    .then(response => response.json());
+                });
+                
+                // Odottaa, että kaikki Promise objektit ovat onnistunut
+                Promise.all(refPromises).then(refComps => {
+                  setRefs(refComps);
+                });
+              }
+
             });
           });
       }, []);
 
     if (postInfo.length == 0) return '';
-
 
     return (
         <div className="article">
@@ -72,6 +97,12 @@ export default function PostPage(){
                 <Typography variant="h4">Summary</Typography>
                 <Typography>{postInfo.summary}</Typography>
             </div>
+
+            {refs.length > 0 && (
+              <References refs={refs}></References>
+            )
+            }
+            
         </div>
     )
 }
