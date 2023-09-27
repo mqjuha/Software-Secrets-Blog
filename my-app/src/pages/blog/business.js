@@ -10,6 +10,22 @@ import './blog_layout.css'
 export default function Business() {
 
   const [posts, setPosts] = useState([]);
+  const [filters, setFilters] = useState([]);
+  const [order, setOrder] = useState('');
+
+  const includesAll = (arr, values) => values.every(v => arr.includes(v));
+
+  function filterByKeywords(item) {
+    return (includesAll(item.keywords, filters));
+  }
+
+  const changeFilters = (ord, ftr) => {
+    setFilters(ftr)
+    setOrder(ord)
+
+    let f = posts.filter(filterByKeywords);
+    setPosts(f)
+  }
 
   useEffect(() => {
     let x = true;
@@ -24,6 +40,7 @@ export default function Business() {
           });
       });
     }
+
     return () => {setPosts([])}
 
   }, []);
@@ -35,7 +52,7 @@ export default function Business() {
     return (
         <div className="top-section">
             <BlogNavbar></BlogNavbar>
-            <Blogfilter></Blogfilter>
+            <Blogfilter changeFilters={changeFilters}></Blogfilter>
             <div className="list">
                 {posts.length > 0 && posts.map( post => (
                     <Post {...post} />

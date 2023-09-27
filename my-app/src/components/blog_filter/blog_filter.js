@@ -12,7 +12,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 import mainTheme from './../../themes/main_theme';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
+import { useEffect, useState, createRef } from "react";
 
 import './blog_filter.css'
 
@@ -41,7 +41,31 @@ const sortOptions = [
 ]
 
 
-function Search_field () {
+export default function Blogfilter ({changeFilters}) {
+
+  const [inputKeywords, setInputKeywords] = useState([]);
+  const [inputTypes, setInputTypes] = useState([]);
+  const [inputSort, setInputSort] = useState('');
+
+
+  function filtersChanged(e, value) {
+
+    if (e.currentTarget.id.includes('by-keywords')){
+      setInputKeywords(value);
+      changeFilters(inputSort, [...value, ...inputTypes])
+    }
+    if (e.currentTarget.id.includes('by-type')){
+      setInputTypes(value);
+      changeFilters(inputSort, [...inputKeywords, ...value])
+    }
+    if (e.currentTarget.id.includes('sort-by')){
+      setInputSort(value);
+      changeFilters(value, [...inputKeywords, ...inputTypes])
+    }
+ 
+  }
+
+
     return (
       <Fragment>
         <div className="filter-section">
@@ -51,6 +75,7 @@ function Search_field () {
               multiple
               id="filter-by-keywords"
               options={keywords}
+              onChange={(event, value) => filtersChanged(event, value)}
               disableCloseOnSelect
               getOptionLabel={(option) => option}
               renderOption={(props, option, { selected }) => (
@@ -73,6 +98,7 @@ function Search_field () {
               multiple
               id="filter-by-type"
               options={types}
+              onChange={(event, value) => filtersChanged(event, value)}
               disableCloseOnSelect
               getOptionLabel={(option) => option}
               renderOption={(props, option, { selected }) => (
@@ -96,40 +122,10 @@ function Search_field () {
             disablePortal
             id="sort-by"
             options={sortOptions}
+            onChange={(event, value) => filtersChanged(event, value)}
             renderInput={(params) => <TextField {...params} label="Sort by" />}
           />
         </div>
       </Fragment>
-    )
-}
-
-function Filter_selector () {
-    return (
-        <div>
-            <div>
-                
-            </div>
-
-        </div>
-    )
-}
-
-function Sort_selector () {
-    return (
-        <div>
-
-        </div>
-    )
-}
-
-export default function Blogfilter () {
-    return (
-        <Fragment>
-            <div>
-                <Search_field></Search_field>
-                <Filter_selector></Filter_selector>
-                <Sort_selector></Sort_selector>
-            </div>
-        </Fragment>
     )
 }

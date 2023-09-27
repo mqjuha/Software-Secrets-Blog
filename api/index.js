@@ -35,7 +35,7 @@ app.post('/', async (req,res) => {
 app.get('/blog/technology', async (req, res) => {
     console.log('GET TECH POSTS')
     res.json(
-        await Post.find({category: "tech"}).exec()
+        await Post.find({category: "tech", keywords: { $all: []}}).exec()
     );
 });
 
