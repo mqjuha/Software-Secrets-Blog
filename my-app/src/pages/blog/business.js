@@ -19,12 +19,51 @@ export default function Business() {
     return (includesAll(item.keywords, filters));
   }
 
+  function sortPosts() {
+    let sorted = posts;
+
+    if (order === 'From latest to oldest') {
+      sorted.sort((a,b) =>
+      a.date.localeCompare(b.date));
+      console.log(sorted);
+      setPosts(sorted)
+      
+    }
+
+    if (order === 'Alphabetical order') {
+      sorted.sort(function(a,b){
+        var titleA = a.title.toUpperCase();
+        console.log(titleA)
+        var titleB = b.title.toUpperCase();
+        console.log(titleB)
+        return (titleA < titleB) ? -1 : (titleA > titleB) ? 1 : 0;
+      });
+      
+      console.log(sorted);
+      setPosts(sorted)
+      
+    }
+
+    if (order === 'From oldest to latest') {
+      sorted.sort((a,b) =>
+      a.date.localeCompare(b.date));
+      sorted.reverse();
+      console.log(sorted);
+      setPosts(sorted)
+      
+    }
+
+    
+  }
+
   const changeFilters = (ord, ftr) => {
     setFilters(ftr)
     setOrder(ord)
 
-    let f = posts.filter(filterByKeywords);
-    setPosts(f)
+    const filtered = posts.filter(filterByKeywords);
+    
+    setPosts(filtered)
+    sortPosts()
   }
 
   useEffect(() => {

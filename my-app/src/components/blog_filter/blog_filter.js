@@ -22,9 +22,21 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 // get geywords from db
 const keywords = [
-'keyword1',
-'keyword2',
-'keyword3'
+'business model',
+'revenue streams',
+'design approach',
+'experience design',
+'user study',
+'requirements',
+'usability',
+'testing',
+'software development',
+'process',
+'software architecture',
+'design pattern',
+'programming',
+'model',
+'experience goals'
 ]
 
 // get types from db
@@ -37,7 +49,7 @@ const types = [
 const sortOptions = [
   'From latest to oldest',
   'Alphabetical order',
-  'Most popular'
+  'From oldest to latest'
 ]
 
 
