@@ -15,17 +15,16 @@ import {Link} from 'react-router-dom';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { Typography } from '@mui/material';
 
-const test_items = [
+/*const test_items = [
 	{ link: '/feedback', main_text: 'MAIN TEXT', dot_color: 'secondary', },
 	{ link: 'https://medium.com/@bfgmartin/what-is-a-product-manager-ce0efdcf114c', main_text: 'MAIN TEXT 2', secondary_text: 'secondary', dot_color: 'secondary', },
     { main_text: 'MAIN TEXT 3', secondary_text: 'secondary', dot_color: 'success', },
     { main_text: 'MAIN TEXT 4', secondary_text: null, dot_color: 'success', },
-]
+]*/
 
 function TimelineVertical( {timeline} ) {
-
-    console.log("TIMELINEVERT:", timeline);
 
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md')); // 900px
@@ -35,7 +34,6 @@ function TimelineVertical( {timeline} ) {
     }
 
     const dots = timeline.dots;
-    console.log(dots);
 
 	return (
         <div className='timeline-ver-section'>
@@ -47,7 +45,7 @@ function TimelineVertical( {timeline} ) {
                         <TimelineOppositeContent display={ matches ? 'block' : 'none' }>{item.secondary_text}</TimelineOppositeContent>
                         <TimelineSeparator>
                             <TimelineDot color='success' />
-                            { i !== test_items.length - 1 && <TimelineConnector />}
+                            { i !== dots.length - 1 && <TimelineConnector />}
                         </TimelineSeparator>
                         <TimelineContent>
                             { "link" in item ?
@@ -55,10 +53,10 @@ function TimelineVertical( {timeline} ) {
                                 <a 
                                     className='timeline-ver-link'
                                     href={`/blog/${item.link}`}
-                                    >{item.main_text}
+                                    ><strong>{item.main_text}</strong>
                                 </a>
                             ) : ( 
-                                <div>{item.main_text}</div>)
+                                <div><strong>{item.main_text}</strong></div>)
                             }
                         </TimelineContent>
                     </TimelineItem>
