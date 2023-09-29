@@ -16,7 +16,7 @@ export default function Business() {
     if (x) {
 
     console.log('fetch business');
-      fetch('http://localhost:3001/blog', {method: "GET"}).then(response => {
+      fetch('http://localhost:10000/blog', {method: "GET"}).then(response => {
         console.log(response);
           response.json().then(postArr => {
               setPosts(postArr);

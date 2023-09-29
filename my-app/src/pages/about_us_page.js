@@ -22,7 +22,7 @@ function About() {
 
     if (x) {
 
-      fetch('http://localhost:3001/aboutus', {method: "GET"}).then(response => {
+      fetch('http://localhost:10000/aboutus', {method: "GET"}).then(response => {
           response.json().then( persons => {
             //console.log(persons);
               setUs(persons);

@@ -23,28 +23,28 @@ export default function PostPage(){
     const {id} = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:3001/blog/${id}`)
+        fetch(`http://localhost:10000/blog/${id}`)
           .then(response => {
             response.json().then(info => {
               setPostInfo(info);
 
               if (info.nav.nav_type === 'TimelineHor') {
                 
-                fetch(`http://localhost:3001/timelineHor/${info.nav.element}`)
+                fetch(`http://localhost:10000/timelineHor/${info.nav.element}`)
                   .then(response => response.json())
                   .then(timelineHor => {
                     setSelectedNavComponent(<TimelineHorizontal timeline={timelineHor} />);
                   })
               } else if (info.nav.nav_type === 'TimelineVer') {
 
-                fetch(`http://localhost:3001/timelineVer/${info.nav.element}`)
+                fetch(`http://localhost:10000/timelineVer/${info.nav.element}`)
                 .then(response => response.json())
                 .then(timelineVer => {
                   setSelectedNavComponent(<TimelineVertical timeline={timelineVer} />);
                 })
               } else if (info.nav.nav_type === 'TableComparison') {
 
-                fetch(`http://localhost:3001/tableComponent/${info.nav.element}`)
+                fetch(`http://localhost:10000/tableComponent/${info.nav.element}`)
                 .then(response => response.json())
                 .then(tableComp => {
                   setSelectedNavComponent(<TableComparison whole_table_data={tableComp} />);
@@ -53,7 +53,7 @@ export default function PostPage(){
 
               if (info.references.length !== 0) {
                 const refPromises = info.references.map(ref_id => {
-                  return fetch(`http://localhost:3001/reference/${ref_id}`)
+                  return fetch(`http://localhost:10000/reference/${ref_id}`)
                     .then(response => response.json());
                 });
                 
