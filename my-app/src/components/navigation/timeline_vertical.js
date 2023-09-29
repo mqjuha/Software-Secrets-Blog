@@ -52,11 +52,11 @@ function TimelineVertical( {timeline} ) {
                         <TimelineContent>
                             { "link" in item ?
                             (
-                                <Link 
+                                <a 
                                     className='timeline-ver-link'
-                                    to={item.link}
+                                    href={`/blog/${item.link}`}
                                     >{item.main_text}
-                                </Link>
+                                </a>
                             ) : ( 
                                 <div>{item.main_text}</div>)
                             }
