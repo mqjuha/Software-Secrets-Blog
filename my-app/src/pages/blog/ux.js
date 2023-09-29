@@ -9,7 +9,58 @@ import './blog_layout.css'
 
 export default function Ux() {
 
-    const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [filters, setFilters] = useState([]);
+  const [order, setOrder] = useState('');
+
+  const includesAll = (arr, values) => values.every(v => arr.includes(v));
+
+  function filterByKeywords(item) {
+    return (includesAll(item.keywords, filters));
+  }
+
+  function sortPosts() {
+    let sorted = posts;
+
+    if (order === 'From latest to oldest') {
+      sorted.sort((a,b) =>
+      a.date.localeCompare(b.date));
+      console.log(sorted);
+      setPosts(sorted)
+      
+    }
+
+    if (order === 'Alphabetical order') {
+      sorted.sort(function(a,b){
+        var titleA = a.title.toUpperCase();
+        console.log(titleA)
+        var titleB = b.title.toUpperCase();
+        console.log(titleB)
+        return (titleA < titleB) ? -1 : (titleA > titleB) ? 1 : 0;
+      });
+      
+      console.log(sorted);
+      setPosts(sorted)
+    }
+
+    if (order === 'From oldest to latest') {
+      sorted.sort((a,b) =>
+      a.date.localeCompare(b.date));
+      sorted.reverse();
+      console.log(sorted);
+      setPosts(sorted)
+    }
+  }
+
+  const changeFilters = (ord, ftr) => {
+    setFilters(ftr)
+    setOrder(ord)
+
+    const filtered = posts.filter(filterByKeywords);
+    
+    setPosts(filtered)
+    sortPosts()
+  }
 
     useEffect(() => {
         let x = true;
@@ -35,7 +86,7 @@ export default function Ux() {
     return (
         <div className="top-section">
             <BlogNavbar></BlogNavbar>
-            <Blogfilter></Blogfilter>
+            <Blogfilter changeFilters={changeFilters}></Blogfilter>
             <div className="list">
                 {posts.length > 0 && posts.map( post => (
                     <Post {...post} />

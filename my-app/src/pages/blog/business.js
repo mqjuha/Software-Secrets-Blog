@@ -6,6 +6,7 @@ import BlogNavbar from "../../components/blog_nav_bar/blog_nav_bar";
 import Post from '../../components/post/post';
 
 import './blog_layout.css'
+import { Typography } from '@mui/material';
 
 export default function Business() {
 
@@ -85,7 +86,15 @@ export default function Business() {
   }, []);
 
   if ( posts.length === 0 ){
-    return '';
+    return (
+      <div className="top-section">
+      <BlogNavbar></BlogNavbar>
+      <Blogfilter changeFilters={changeFilters}></Blogfilter>
+        <div className='error-message'>
+          <Typography className='message'>No results.</Typography>
+        </div>
+      </div>
+    )
   }
 
     return (
