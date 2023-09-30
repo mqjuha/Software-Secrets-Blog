@@ -1,5 +1,4 @@
 .section {
-    flex: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +6,6 @@
     position: relative;
     background-color: var(--background);
     text-align: center;
-    
 }
 
 .question-column {
@@ -20,6 +18,10 @@
     max-width: 100%;
     width: 800px;
     gap: 50px;
+}
+
+.main-header {
+    width: 100%;
 }
 
 .question {
@@ -41,11 +43,11 @@
 
 .send-button {
     height: 60px;
-    width: 4cm;
+    width: 150px;
     margin: 15px 15px;
-    padding: 100px 100px;
-    background-color: var(--foreground);
-    color: var(--background);
+    padding: 30px 30px;
+    background-color: #13232f;
+    color: #faf9f0;
     font-size: large;
     margin-bottom: 50px;
     margin-top: 0px;

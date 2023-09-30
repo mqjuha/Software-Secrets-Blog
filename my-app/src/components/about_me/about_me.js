@@ -9,9 +9,8 @@ import './about_me.css'
 import { Typography } from "@mui/material";
 
 import { Link } from 'react-router-dom';
-import Email from '@mui/icons-material/Email';
 
-const persons = [
+/*const persons = [
     { 
         name: 'First Last',
         job: 'Student',
@@ -28,14 +27,16 @@ const persons = [
         linkedin: '',
         email: 'first.last@gmail.com',
     },
-]
+]*/
 
-export default function PersonalInfo() {
+export default function PersonalInfo( {persons} ) {
+
+    //console.log(persons);
     
     return (
         <Fragment>
             <div className='persons'>
-                {persons.map(person=>(
+                {persons.map( person => (
                     <div className='person-section'>
                         <div className='side person-img'>
                             <img src={person.img} />

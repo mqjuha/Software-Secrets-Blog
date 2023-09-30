@@ -2,9 +2,19 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+const AboutUs = require('./models/AboutUs.js');
+
+const { MongoClient } = require("mongodb");
+
 const Reference = require('./models/Reference');
 const Post = require('./models/Post_item');
 const fs = require('fs');
+
+const About = require('./models/AboutUs');
+const TimelineVer = require('./models/TimelineVertical');
+const TimelineHor = require('./models/TimelineHorizontal');
+const Ref = require('./models/Reference.js');
+const TableComponent = require('./models/Table.js')
 
 const app = express();
 
@@ -13,25 +23,18 @@ app.use(express.json());
 
 mongoose.connect('mongodb+srv://SSB-user:g11zWMpLH6MZnuiD@cluster0.gf98q4b.mongodb.net/secrets?retryWrites=true&w=majority');
 
-
 app.post('/', async (req,res) => {
-    const postDoc =  await Post.create({
-        category: "ux",
-        title: "Experience-driven Design",
-        date: "2023-06-10",
-        cover: "images/img1",
-        keywords: ["experience design", "experience goals"],
-        abstract: "ABSTRACT",
-        nav: {
-            nav_type: "Comparison",
-            content: "567839049873623er"
-        },
-        content: ["1", "2", "3", "4", "5"],
-        summary: "SUMMARY",
-        references: ["64d4f852045c352f994e0d14"]
-    })
-    res.json(postDoc);
+    console.log('TOimiiks');
+
 });
+
+app.get('/aboutus', async (req,res) => {
+    console.log('GET: AboutUs');
+    res.json(
+      await About.find({})
+    );
+});
+
 app.get('/blog/technology', async (req, res) => {
     console.log('GET TECH POSTS')
     res.json(
@@ -60,32 +63,47 @@ app.get('/blog', async (req,res) => {
 });
 
 app.get('/blog/:id', async (req, res) => {
+
+    console.log("GET: Article")
     const {id} = req.params;
+
     res.json(
         await Post.findById(id)
     );
 });
 
-
-
-/*
-app.post('/', async (req,res) => {
-    const {testname, content} = req.body;
-    const referenceDoc =  await Reference.create({
-        author: "author",
-        title: "content"
-    })
-    res.json(referenceDoc);
-});
-
-
-
-app.get('/post/:id', async (req, res) => {
+app.get('/timelineHor/:id', async (req, res) => {
+    console.log("GET: TimelineHor")
     const {id} = req.params;
-    const postDoc = await Post.findById(id);
-    res.json(postDoc);
+
+    res.json(
+        await TimelineHor.findById(id)
+    );
 });
-*/
+
+app.get('/timelineVer/:id', async (req, res) => {
+    console.log("GET: TimelineVer")
+    const {id} = req.params;
+
+    res.json(
+        await TimelineVer.findById(id)
+    );
+});
+
+app.get('/tableComponent/:id', async (req,res) => {
+    console.log('GET: Table');
+    const {id} = req.params;
+    res.json(
+      await TableComponent.findById(id)
+    );
+});
+
+app.get('/reference/:id', async (req,res) => {
+    console.log('GET: Reference');
+    const {id} = req.params;
+    res.json(
+      await Ref.findById(id)
+    );
+});
 
 app.listen(3001);
-

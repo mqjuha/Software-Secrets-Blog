@@ -9,10 +9,7 @@
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    
     color: var(--background);
-    align-items: center;
-    text-align: center;
 }
 
 .ref-header {
@@ -21,7 +18,24 @@
     margin-top: 10px;
 }
 
-.ref-text {
-    margin-bottom: 10px;
+.ul {
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.li {
+    width: 100%;
+    margin-bottom: 20px;
     list-style-type: none;
+}
+
+.ref-text {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.href {
+    margin-left: 10px;
 }
