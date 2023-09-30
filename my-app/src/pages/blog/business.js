@@ -11,6 +11,7 @@ import { Typography } from '@mui/material';
 export default function Business() {
 
   const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
   const [filters, setFilters] = useState([]);
   const [order, setOrder] = useState('');
 
@@ -27,7 +28,7 @@ export default function Business() {
       sorted.sort((a,b) =>
       a.date.localeCompare(b.date));
       console.log(sorted);
-      setPosts(sorted)
+      setFilteredPosts(sorted)
       
     }
 
@@ -41,7 +42,7 @@ export default function Business() {
       });
       
       console.log(sorted);
-      setPosts(sorted)
+      setFilteredPosts(sorted)
       
     }
 
@@ -50,7 +51,7 @@ export default function Business() {
       a.date.localeCompare(b.date));
       sorted.reverse();
       console.log(sorted);
-      setPosts(sorted)
+      setFilteredPosts(sorted)
       
     }
 
@@ -61,9 +62,11 @@ export default function Business() {
     setFilters(ftr)
     setOrder(ord)
 
+    console.log(ftr)
+
     const filtered = posts.filter(filterByKeywords);
     
-    setPosts(filtered)
+    setFilteredPosts(filtered)
     sortPosts()
   }
 
@@ -77,6 +80,7 @@ export default function Business() {
         console.log(response);
           response.json().then(postArr => {
               setPosts(postArr);
+              setFilteredPosts(postArr)
           });
       });
     }
@@ -85,7 +89,7 @@ export default function Business() {
 
   }, []);
 
-  if ( posts.length === 0 ){
+  if ( filteredPosts.length === 0 ){
     return (
       <div className="top-section">
       <BlogNavbar></BlogNavbar>
@@ -102,7 +106,7 @@ export default function Business() {
             <BlogNavbar></BlogNavbar>
             <Blogfilter changeFilters={changeFilters}></Blogfilter>
             <div className="list">
-                {posts.length > 0 && posts.map( post => (
+                {filteredPosts.length > 0 && filteredPosts.map( post => (
                     <Post {...post} />
             ))}
 

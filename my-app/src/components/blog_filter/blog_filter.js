@@ -57,7 +57,7 @@ export default function Blogfilter ({changeFilters}) {
 
   const [inputKeywords, setInputKeywords] = useState([]);
   const [inputTypes, setInputTypes] = useState([]);
-  const [inputSort, setInputSort] = useState('');
+  const [inputSort, setInputSort] = useState("From latest to oldest");
 
 
   function filtersChanged(e, value) {
@@ -87,7 +87,8 @@ export default function Blogfilter ({changeFilters}) {
               multiple
               id="filter-by-keywords"
               options={keywords}
-              onChange={(event, value) => filtersChanged(event, value)}
+              value={inputKeywords}
+              onChange={(event, newValue) => filtersChanged(event, newValue)}
               disableCloseOnSelect
               getOptionLabel={(option) => option}
               renderOption={(props, option, { selected }) => (
@@ -110,7 +111,8 @@ export default function Blogfilter ({changeFilters}) {
               multiple
               id="filter-by-type"
               options={types}
-              onChange={(event, value) => filtersChanged(event, value)}
+              value={inputTypes}
+              onChange={(event, newValue) => filtersChanged(event, newValue)}
               disableCloseOnSelect
               getOptionLabel={(option) => option}
               renderOption={(props, option, { selected }) => (
@@ -134,7 +136,8 @@ export default function Blogfilter ({changeFilters}) {
             disablePortal
             id="sort-by"
             options={sortOptions}
-            onChange={(event, value) => filtersChanged(event, value)}
+            value={inputSort}
+            onChange={(event, newValue) => filtersChanged(event, newValue)}
             renderInput={(params) => <TextField {...params} label="Sort by" />}
           />
         </div>
