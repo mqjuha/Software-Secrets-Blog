@@ -7,7 +7,7 @@
 	overflow: auto;
 	color: var(--font);
 	align-items: center;
-	border: 2px solid var(--primary);
+
 }
 
 .timeline-ver-link {
