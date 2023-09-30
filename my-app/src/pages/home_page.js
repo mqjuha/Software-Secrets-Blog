@@ -83,7 +83,7 @@ function Home() {
         ))}
       </div>
       <FeedbackAnnouncement></FeedbackAnnouncement>
-      <button onClick={test}>TESTI</button>
+
     </div>
 
   );
