@@ -103,9 +103,9 @@ const customIcons = {
               <h2 className='main-header'>Give us useful feedback to improve the website! :)</h2>
               <div className='question-column'>
                 <RadioGroupRating id='question1' question='What do you think about the blog?' number={0}></RadioGroupRating>         
-                <RadioGroupRating id='question2' question='0' number={1}></RadioGroupRating>               
-                <RadioGroupRating id='question3' question='1' number={2}></RadioGroupRating>                
-                <RadioGroupRating id='question4' question='2' number={3}></RadioGroupRating>
+                <RadioGroupRating id='question2' question='How easy it was to find what you were looking for?' number={1}></RadioGroupRating>               
+                <RadioGroupRating id='question3' question='Did the website meet your expectations?' number={2}></RadioGroupRating>                
+                <RadioGroupRating id='question4' question='How likely you will recommend the website?' number={3}></RadioGroupRating>
 
                 <div className='question'>
                     <h6 className='question-text'>Please give feedback !</h6>
