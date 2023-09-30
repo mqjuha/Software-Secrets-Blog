@@ -50,16 +50,6 @@ function Home() {
 
   const testname = 'testi5';
   const content = 'toimii5';
-
-  async function test(e) {
-    e.preventDefault();
-    await fetch('http://localhost:10000', {
-      method: 'POST',
-      body: JSON.stringify({testname, content}),
-      headers: {'Content-Type':'application/json'},
-      credentials: "omit",
-    })
-  }
   
   return (
 

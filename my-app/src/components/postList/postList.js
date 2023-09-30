@@ -6,7 +6,7 @@ import './postList.css'
 export default function Postlist() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:10000/blog').then(response => {
+        fetch('https://software-secrets-blog.onrender.com/blog').then(response => {
             response.json().then(posts => {
                 setPosts(posts);
             });
