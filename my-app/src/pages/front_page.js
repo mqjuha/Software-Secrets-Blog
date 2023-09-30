@@ -30,7 +30,7 @@ function FrontPage() {
     if (x) {
 
     console.log('fetch');
-      fetch('http://localhost:3001/blog', {method: "GET"}).then(response => {
+      fetch('https://software-secrets-blog.onrender.com/blog', {method: "GET"}).then(response => {
         console.log(response);
           response.json().then(postArr => {
               setPosts(postArr);
@@ -53,7 +53,7 @@ function FrontPage() {
 
     if (x) {
 
-      fetch('http://localhost:3001/blog', {method: "GET"}).then
+      fetch('https://software-secrets-blog.onrender.com/blog', {method: "GET"}).then
       (response => {
           console.log(response);
           response.json().then( verLine => {
@@ -77,7 +77,7 @@ function FrontPage() {
 
     if (y) {
 
-      fetch('http://localhost:3001/blog', {method: "GET"}).then
+      fetch('https://software-secrets-blog.onrender.com/blog', {method: "GET"}).then
       (response => {
           console.log(response);
           response.json().then( horLine => {
@@ -102,7 +102,7 @@ function FrontPage() {
 
     if (z) {
 
-      fetch('http://localhost:3001/blog', {method: "GET"}).then
+      fetch('https://software-secrets-blog.onrender.com/blog', {method: "GET"}).then
       (response => {
           console.log(response);
           response.json().then( refs => {
@@ -122,7 +122,7 @@ function FrontPage() {
   /*const [table, setTableContent] = useState([]);
   useEffect(() => {
   
-    fetch('http://localhost:3001/blog', {method: "GET"}).then
+    fetch('https://software-secrets-blog.onrender.com/blog', {method: "GET"}).then
     (response => {
         console.log(response);
         response.json().then( content => {
