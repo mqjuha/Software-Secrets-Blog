@@ -30,7 +30,7 @@ export default function PostPage(){
 
               if (info.nav.nav_type === 'TimelineHor') {
                 
-                fetch(`https://software-secrets-blog.onrender.comts-blog.onrender.com/timelineHor/${info.nav.element}`)
+                fetch(`https://software-secrets-blog.onrender.com/timelineHor/${info.nav.element}`)
                   .then(response => response.json())
                   .then(timelineHor => {
                     setSelectedNavComponent(<TimelineHorizontal timeline={timelineHor} />);
