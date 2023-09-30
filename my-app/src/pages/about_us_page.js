@@ -42,11 +42,6 @@ function About() {
         <Typography>{info_text}</Typography>
       </div>
       <Person persons={us}></Person>
-      <ComparisonDiagram 
-        variant="comp3" 
-        titles={["otsikko1", "otsikko2", "otsikko 3"]} 
-        contents={["liibalaabaa", "luubaliibaa","mfmgldj"]}
-      /> 
     </div>
   );
 }

@@ -1,12 +1,11 @@
 
 .blog-navigation {
-    height: 60px;
+    height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    margin: 20px;
     background-color: var(--background);
     color: var(--background);
     /*box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);*/

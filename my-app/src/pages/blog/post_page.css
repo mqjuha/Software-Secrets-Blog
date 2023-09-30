@@ -1,3 +1,15 @@
+.business {
+    --primary: #cb1505;
+}
+
+.ux {
+    --primary: #f3bc23;
+}
+
+.tech {
+    --primary: #2034ba;
+}
+
 .article {
     display: flex;
     flex-direction: column;
@@ -25,6 +37,13 @@
             gap: 10px;
         }
  
+    }
+
+    .navigation-element {
+        display: flex;
+        justify-content: center;
+        padding: 50px;
+        width: 100%;
     }
 
     .content-element {
