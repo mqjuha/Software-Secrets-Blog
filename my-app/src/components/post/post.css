@@ -13,7 +13,7 @@
         align-items: center;
         gap: 10px;
 
-        color: var(--primary);
+        color: var(--foreground);
         text-decoration: none;
 
         .image {

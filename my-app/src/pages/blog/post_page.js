@@ -73,7 +73,7 @@ export default function PostPage(){
     return (
         <div>
         <BlogNavbar></BlogNavbar>
-        <div className="article">
+        <div className={`article ${postInfo.category}`}>
             <div className="intro-element">
                 <Typography variant="h3">{postInfo.title}</Typography>
                 <Typography>{postInfo.date.substr(0,10)}</Typography>
