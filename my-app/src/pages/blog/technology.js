@@ -68,7 +68,7 @@ export default function Technology() {
         if (x) {
     
         console.log('fetch tech');
-          fetch('http://localhost:3001/blog/technology', {method: "GET"}).then(response => {
+          fetch('https://software-secrets-blog.onrender.com/blog/technology', {method: "GET"}).then(response => {
             console.log(response);
               response.json().then(postArr => {
                   setPosts(postArr);

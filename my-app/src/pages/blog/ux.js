@@ -68,7 +68,7 @@ export default function Ux() {
         if (x) {
     
         console.log('fetch ux');
-          fetch('http://localhost:3001/blog/ux', {method: "GET"}).then(response => {
+          fetch('https://software-secrets-blog.onrender.com/blog/ux', {method: "GET"}).then(response => {
             console.log(response);
               response.json().then(postArr => {
                   setPosts(postArr);
