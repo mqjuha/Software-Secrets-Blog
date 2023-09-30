@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "homepage": "https://software-secrets-blog.onrender.com/",
+  "homepage": "https://software-secrets-blog-static-site.onrender.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
