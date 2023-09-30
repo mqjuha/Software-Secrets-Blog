@@ -1,13 +1,11 @@
 import './timeline_horizontal.css'
 
-import {Link} from 'react-router-dom';
-
-const test_items = [
+/*const test_items = [
 	{ link: '/feedback', name: 'Moi', active: true, },
 	{ link: 'https://medium.com/@bfgmartin/what-is-a-product-manager-ce0efdcf114c', name: 'Step 2', active: true, },
     { name: 'Step 3', active: true, },
     { name: 'Step 4', active: false, },
-]
+]*/
 
 function Timeline( {timeline} ) {
 
@@ -18,8 +16,6 @@ function Timeline( {timeline} ) {
     }
 
     const dots = timeline.dots;
-    console.log('DOTS:', dots);
-    console.log('TEST:', test_items);
 
     // Let's calculate the progress of the timelime
     // k active — m items: (k — 1) / (m — 1)
@@ -41,11 +37,11 @@ function Timeline( {timeline} ) {
                             <div className="timeline-content">
                                 { "link" in item ?
                                 (
-                                    <Link 
+                                    <a 
                                         className='timeline-hor-link'
-                                        to={item.link}
+                                        href={`/blog/${item.link}`}
                                         >{item.text}
-                                    </Link>
+                                    </a>
                                 ) : ( 
                                     <div>{item.text}</div>)
                                 }

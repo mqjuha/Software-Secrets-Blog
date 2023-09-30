@@ -1,5 +1,4 @@
 import './table_comparison.css';
-import {Link} from 'react-router-dom';
 
 // Example of a data array that we might receive from an API
 /*const test_data = [
@@ -86,11 +85,11 @@ function Table( {whole_table_data} ) {
 
                     row_list.push(
                       <th key={row_items[0]} className='th-column'>
-                          <Link 
+                          <a 
                             className='th-link'
-                            to={row.navigation}
+                            href={`/blog/${row.navigation}`}
                             >{row_items[0]}
-                          </Link>
+                          </a>
                       </th>)
 
                   }
