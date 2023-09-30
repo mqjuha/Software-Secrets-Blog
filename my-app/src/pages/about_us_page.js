@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Typography } from "@mui/material";
 
 import ComparisonDiagram from '../components/navigation/comparison';
-import about_us_banner from '../images/about_us_banner.jpg';
+import about_us_banner from '../images/home_page_banner.jpg';
 import Person from '../components/about_me/about_me.js';
 
 import { useEffect, useState } from "react";

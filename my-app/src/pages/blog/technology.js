@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from "react";
+import { Typography } from '@mui/material';
 
 import Blogfilter from "../../components/blog_filter/blog_filter";
 import BlogNavbar from "../../components/blog_nav_bar/blog_nav_bar";
@@ -10,6 +11,7 @@ import './blog_layout.css'
 export default function Technology() {
 
   const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
   const [filters, setFilters] = useState([]);
   const [order, setOrder] = useState('');
 
@@ -26,7 +28,7 @@ export default function Technology() {
       sorted.sort((a,b) =>
       a.date.localeCompare(b.date));
       console.log(sorted);
-      setPosts(sorted)
+      setFilteredPosts(sorted)
       
     }
 
@@ -40,7 +42,8 @@ export default function Technology() {
       });
       
       console.log(sorted);
-      setPosts(sorted)
+      setFilteredPosts(sorted)
+      
     }
 
     if (order === 'From oldest to latest') {
@@ -48,40 +51,55 @@ export default function Technology() {
       a.date.localeCompare(b.date));
       sorted.reverse();
       console.log(sorted);
-      setPosts(sorted)
+      setFilteredPosts(sorted)
+      
     }
+
+    
   }
 
   const changeFilters = (ord, ftr) => {
     setFilters(ftr)
     setOrder(ord)
 
+    console.log(ftr)
+
     const filtered = posts.filter(filterByKeywords);
     
-    setPosts(filtered)
+    setFilteredPosts(filtered)
     sortPosts()
   }
 
-    useEffect(() => {
-        let x = true;
-    
-        if (x) {
-    
-        console.log('fetch tech');
-          fetch('https://software-secrets-blog.onrender.com/blog/technology', {method: "GET"}).then(response => {
-            console.log(response);
-              response.json().then(postArr => {
-                  setPosts(postArr);
-              });
+  useEffect(() => {
+    let x = true;
+
+    if (x) {
+
+    console.log('fetch business');
+      fetch('https://software-secrets-blog.onrender.com/blog', {method: "GET"}).then(response => {
+        console.log(response);
+          response.json().then(postArr => {
+              setPosts(postArr);
+              setFilteredPosts(postArr)
           });
-        }
-        return () => {setPosts([])}
-    
-      }, []);
-    
-      if ( posts.length === 0 ){
-        return '';
-      }
+      });
+    }
+
+    return () => {setPosts([])}
+
+  }, []);
+
+  if ( filteredPosts.length === 0 ){
+    return (
+      <div className="top-section">
+      <BlogNavbar></BlogNavbar>
+      <Blogfilter changeFilters={changeFilters}></Blogfilter>
+        <div className='error-message'>
+          <Typography className='message'>No results.</Typography>
+        </div>
+      </div>
+    )
+  }
 
     return (
         <div className="top-section">
