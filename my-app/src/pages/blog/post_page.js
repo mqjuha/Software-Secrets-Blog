@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import './post_page.css'
 import Keyword from "../../components/keyword/keyword";
+import BlogNavbar from "../../components/blog_nav_bar/blog_nav_bar";
 
 import References from '../../components/references/references.js';
 
@@ -70,7 +71,9 @@ export default function PostPage(){
     if (postInfo.length == 0) return '';
 
     return (
-        <div className="article">
+        <div>
+        <BlogNavbar></BlogNavbar>
+        <div className={`article ${postInfo.category}`}>
             <div className="intro-element">
                 <Typography variant="h3">{postInfo.title}</Typography>
                 <Typography>{postInfo.date.substr(0,10)}</Typography>
@@ -103,6 +106,7 @@ export default function PostPage(){
             )
             }
             
+        </div>
         </div>
     )
 }

@@ -3,12 +3,8 @@
 	max-height: 400px;
 	display: flex;
 	flex-direction: column;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-top: 50px;
-	margin-bottom: 50px;
 	padding: 5px;
-	border: 4px solid #f3bc23;
+	border: 4px solid var(--primary);
 	overflow: auto;
 	
 }
@@ -18,15 +14,15 @@ table {
 }
 
 .th-row {
-	border-bottom: 2px solid #f3bc23;
+	border-bottom: 2px solid var(--primary);
 }
 
 .th-column {
-	border-right: 2px solid #f3bc23;
+	border-right: 2px solid var(--primary);
 }
 
 .th-link {
-	color: #f3bc23;
+	color: var(--primary);
 }
 
 td {
