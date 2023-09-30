@@ -22,34 +22,6 @@ function Home() {
 
 
   const textPlaseHolder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh purus, porta sit amet ultrices in, aliquet sed libero. Nulla a accumsan turpis. Cras aliquet, nunc sollicitudin bibendum iaculis, arcu ante pellentesque nisl, nec tristique nibh quam eu lorem. Vivamus vel quam a neque molestie pulvinar. Sed nec euismod est. Vestibulum at luctus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper lacus a tortor iaculis fringilla.";
-
-  // Get from database
-  const topics = [
-    {
-      id: 1,
-      title: "Title 1",
-      desc: textPlaseHolder,
-      img: "https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_1280.jpg",
-      theme: "red-theme"
-    },
-    {
-      id: 2,
-      title: "Title 2",
-      desc: textPlaseHolder,
-      img: "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg",
-      theme: "blue-theme"
-    },
-    {
-      id: 3,
-      title: "Title 3",
-      desc: textPlaseHolder,
-      img: "https://cdn.pixabay.com/photo/2015/05/28/14/36/ux-787968_1280.jpg",
-      theme: "yellow-theme"
-    }
-  ]
-
-  const testname = 'testi5';
-  const content = 'toimii5';
   
   return (
 
@@ -73,7 +45,6 @@ function Home() {
         ))}
       </div>
       <FeedbackAnnouncement></FeedbackAnnouncement>
-      <button onClick={test}>TESTI</button>
     </div>
 
   );
