@@ -4,8 +4,8 @@
   "description": "Software Secrets Blog provides knowledge and tips about software engineering.",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd my-app && npm start\" \"cd api && node index.js\"",
-    "build": "concurrently \"cd my-app && npm start\" \"cd api && node index.js\"",
+    
+    "build": " cd api && node index.js ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
